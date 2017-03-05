@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import FacebookLogin
+import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,FBSDKLoginButtonDelegate {
 
+    @IBOutlet var fbButton: FBSDKLoginButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 65/255, green: 117/255, blue: 5/255, alpha: 100)
+        
+        self.fbButton.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,7 +25,27 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if ((error) != nil) {
+            // Process error
+        }
+        else if result.isCancelled {
+            // Handle cancellations
+        }
+        else {
+            // Navigate to other view
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        //logout
+    }
+    
 
 }
 

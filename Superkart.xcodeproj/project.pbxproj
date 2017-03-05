@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08D12D4814940ECB16F8BD51 /* libPods-SuperkartTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C2F0193CB009087207F02A /* libPods-SuperkartTests.a */; };
 		0CE5E59B1E6CA83B00D3B546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */; };
 		0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */; };
 		0CE5E5A01E6CA83B00D3B546 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5E59E1E6CA83B00D3B546 /* Main.storyboard */; };
@@ -14,6 +15,9 @@
 		0CE5E5A51E6CA83B00D3B546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5E5A31E6CA83B00D3B546 /* LaunchScreen.storyboard */; };
 		0CE5E5B01E6CA83B00D3B546 /* SuperkartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E5AF1E6CA83B00D3B546 /* SuperkartTests.swift */; };
 		0CE5E5BB1E6CA83B00D3B546 /* SuperkartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E5BA1E6CA83B00D3B546 /* SuperkartUITests.swift */; };
+		0CE5E5C91E6CA91A00D3B546 /* icon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5E5C81E6CA91A00D3B546 /* icon.pdf */; };
+		79740B2703F1A9639F4803DC /* libPods-SuperkartUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBFE196C7558CE06588F6A7 /* libPods-SuperkartUITests.a */; };
+		DC4F5CCE225BA334090FB809 /* Pods_Superkart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677F6E34FD92166A28C36021 /* Pods_Superkart.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,16 @@
 		0CE5E5B61E6CA83B00D3B546 /* SuperkartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperkartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE5E5BA1E6CA83B00D3B546 /* SuperkartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperkartUITests.swift; sourceTree = "<group>"; };
 		0CE5E5BC1E6CA83C00D3B546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CE5E5C81E6CA91A00D3B546 /* icon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = icon.pdf; path = ../../icon.pdf; sourceTree = "<group>"; };
+		13C2F0193CB009087207F02A /* libPods-SuperkartTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperkartTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		148111DDEA07575E333B92FC /* Pods-SuperkartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperkartUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperkartUITests/Pods-SuperkartUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2D7125FF56453A7436D3D644 /* Pods-Superkart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Superkart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Superkart/Pods-Superkart.release.xcconfig"; sourceTree = "<group>"; };
+		36E5B92293C78C25D604E878 /* Pods-SuperkartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperkartTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperkartTests/Pods-SuperkartTests.release.xcconfig"; sourceTree = "<group>"; };
+		677F6E34FD92166A28C36021 /* Pods_Superkart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Superkart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CBFE196C7558CE06588F6A7 /* libPods-SuperkartUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperkartUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E3A2C39F76A68103A3F16C4 /* Pods-SuperkartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperkartTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperkartTests/Pods-SuperkartTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2D502A01D804BFBE2CC8FF6 /* Pods-Superkart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Superkart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Superkart/Pods-Superkart.debug.xcconfig"; sourceTree = "<group>"; };
+		B896A6578F9E869BB6A8C149 /* Pods-SuperkartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperkartUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperkartUITests/Pods-SuperkartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4F5CCE225BA334090FB809 /* Pods_Superkart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D12D4814940ECB16F8BD51 /* libPods-SuperkartTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79740B2703F1A9639F4803DC /* libPods-SuperkartUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,8 @@
 				0CE5E5AE1E6CA83B00D3B546 /* SuperkartTests */,
 				0CE5E5B91E6CA83B00D3B546 /* SuperkartUITests */,
 				0CE5E5981E6CA83B00D3B546 /* Products */,
+				A03B9EA52D75C31708CAAB32 /* Pods */,
+				E1E2351BC3437D0BBE3988C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +119,7 @@
 				0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */,
 				0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */,
 				0CE5E59E1E6CA83B00D3B546 /* Main.storyboard */,
+				0CE5E5C81E6CA91A00D3B546 /* icon.pdf */,
 				0CE5E5A11E6CA83B00D3B546 /* Assets.xcassets */,
 				0CE5E5A31E6CA83B00D3B546 /* LaunchScreen.storyboard */,
 				0CE5E5A61E6CA83B00D3B546 /* Info.plist */,
@@ -125,6 +145,29 @@
 			path = SuperkartUITests;
 			sourceTree = "<group>";
 		};
+		A03B9EA52D75C31708CAAB32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2D502A01D804BFBE2CC8FF6 /* Pods-Superkart.debug.xcconfig */,
+				2D7125FF56453A7436D3D644 /* Pods-Superkart.release.xcconfig */,
+				8E3A2C39F76A68103A3F16C4 /* Pods-SuperkartTests.debug.xcconfig */,
+				36E5B92293C78C25D604E878 /* Pods-SuperkartTests.release.xcconfig */,
+				B896A6578F9E869BB6A8C149 /* Pods-SuperkartUITests.debug.xcconfig */,
+				148111DDEA07575E333B92FC /* Pods-SuperkartUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E1E2351BC3437D0BBE3988C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				677F6E34FD92166A28C36021 /* Pods_Superkart.framework */,
+				13C2F0193CB009087207F02A /* libPods-SuperkartTests.a */,
+				6CBFE196C7558CE06588F6A7 /* libPods-SuperkartUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CE5E5BF1E6CA83C00D3B546 /* Build configuration list for PBXNativeTarget "Superkart" */;
 			buildPhases = (
+				B75DD338482937A149188BD6 /* [CP] Check Pods Manifest.lock */,
 				0CE5E5931E6CA83B00D3B546 /* Sources */,
 				0CE5E5941E6CA83B00D3B546 /* Frameworks */,
 				0CE5E5951E6CA83B00D3B546 /* Resources */,
+				8FBEFE44EA328B8C7A01ADD8 /* [CP] Embed Pods Frameworks */,
+				F7F6F83F66CEF1EBA472087A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CE5E5C21E6CA83C00D3B546 /* Build configuration list for PBXNativeTarget "SuperkartTests" */;
 			buildPhases = (
+				070B60F56A7777429FB9BFE9 /* [CP] Check Pods Manifest.lock */,
 				0CE5E5A71E6CA83B00D3B546 /* Sources */,
 				0CE5E5A81E6CA83B00D3B546 /* Frameworks */,
 				0CE5E5A91E6CA83B00D3B546 /* Resources */,
+				A2429F179530D3D91584FB7C /* [CP] Embed Pods Frameworks */,
+				813C0E4F593F16867DF5A8AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CE5E5C51E6CA83C00D3B546 /* Build configuration list for PBXNativeTarget "SuperkartUITests" */;
 			buildPhases = (
+				F3820F68D78C738FEB0D843A /* [CP] Check Pods Manifest.lock */,
 				0CE5E5B21E6CA83B00D3B546 /* Sources */,
 				0CE5E5B31E6CA83B00D3B546 /* Frameworks */,
 				0CE5E5B41E6CA83B00D3B546 /* Resources */,
+				9FAF9041C5B0BC51C7D0FD96 /* [CP] Embed Pods Frameworks */,
+				E1548CD438CA18CEF78BA59B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,6 +239,7 @@
 		0CE5E58F1E6CA83B00D3B546 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SK;
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = aluco;
@@ -236,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE5E5A51E6CA83B00D3B546 /* LaunchScreen.storyboard in Resources */,
+				0CE5E5C91E6CA91A00D3B546 /* icon.pdf in Resources */,
 				0CE5E5A21E6CA83B00D3B546 /* Assets.xcassets in Resources */,
 				0CE5E5A01E6CA83B00D3B546 /* Main.storyboard in Resources */,
 			);
@@ -256,6 +310,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		070B60F56A7777429FB9BFE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		813C0E4F593F16867DF5A8AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperkartTests/Pods-SuperkartTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FBEFE44EA328B8C7A01ADD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Superkart/Pods-Superkart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FAF9041C5B0BC51C7D0FD96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperkartUITests/Pods-SuperkartUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2429F179530D3D91584FB7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperkartTests/Pods-SuperkartTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B75DD338482937A149188BD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E1548CD438CA18CEF78BA59B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperkartUITests/Pods-SuperkartUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3820F68D78C738FEB0D843A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7F6F83F66CEF1EBA472087A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Superkart/Pods-Superkart-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0CE5E5931E6CA83B00D3B546 /* Sources */ = {
@@ -413,6 +605,7 @@
 		};
 		0CE5E5C01E6CA83C00D3B546 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2D502A01D804BFBE2CC8FF6 /* Pods-Superkart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J8PM7K467L;
@@ -426,6 +619,7 @@
 		};
 		0CE5E5C11E6CA83C00D3B546 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D7125FF56453A7436D3D644 /* Pods-Superkart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J8PM7K467L;
@@ -439,6 +633,7 @@
 		};
 		0CE5E5C31E6CA83C00D3B546 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E3A2C39F76A68103A3F16C4 /* Pods-SuperkartTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -454,6 +649,7 @@
 		};
 		0CE5E5C41E6CA83C00D3B546 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36E5B92293C78C25D604E878 /* Pods-SuperkartTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -469,6 +665,7 @@
 		};
 		0CE5E5C61E6CA83C00D3B546 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B896A6578F9E869BB6A8C149 /* Pods-SuperkartUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = J8PM7K467L;
@@ -483,6 +680,7 @@
 		};
 		0CE5E5C71E6CA83C00D3B546 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 148111DDEA07575E333B92FC /* Pods-SuperkartUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = J8PM7K467L;
@@ -514,6 +712,7 @@
 				0CE5E5C11E6CA83C00D3B546 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CE5E5C21E6CA83C00D3B546 /* Build configuration list for PBXNativeTarget "SuperkartTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +721,7 @@
 				0CE5E5C41E6CA83C00D3B546 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CE5E5C51E6CA83C00D3B546 /* Build configuration list for PBXNativeTarget "SuperkartUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +730,7 @@
 				0CE5E5C71E6CA83C00D3B546 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
