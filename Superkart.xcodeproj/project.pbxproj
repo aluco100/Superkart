@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		08D12D4814940ECB16F8BD51 /* libPods-SuperkartTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C2F0193CB009087207F02A /* libPods-SuperkartTests.a */; };
+		0C0535EB1E885C7800A4AEC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535EA1E885C7800A4AEC0 /* User.swift */; };
+		0C0535ED1E885DA500A4AEC0 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535EC1E885DA500A4AEC0 /* ShoppingList.swift */; };
+		0C0535EF1E885E4400A4AEC0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535EE1E885E4400A4AEC0 /* Item.swift */; };
+		0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */; };
+		0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F31E886A9600A4AEC0 /* SKColors.swift */; };
 		0CE5E59B1E6CA83B00D3B546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */; };
 		0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */; };
 		0CE5E5A01E6CA83B00D3B546 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5E59E1E6CA83B00D3B546 /* Main.storyboard */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0535EA1E885C7800A4AEC0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0C0535EC1E885DA500A4AEC0 /* ShoppingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		0C0535EE1E885E4400A4AEC0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKShoppingViewController.swift; sourceTree = "<group>"; };
+		0C0535F31E886A9600A4AEC0 /* SKColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKColors.swift; sourceTree = "<group>"; };
 		0CE5E5971E6CA83B00D3B546 /* Superkart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Superkart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0535F21E886A8500A4AEC0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0C0535F31E886A9600A4AEC0 /* SKColors.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		0CE5E58E1E6CA83B00D3B546 = {
 			isa = PBXGroup;
 			children = (
@@ -116,10 +134,12 @@
 		0CE5E5991E6CA83B00D3B546 /* Superkart */ = {
 			isa = PBXGroup;
 			children = (
+				0C0535F21E886A8500A4AEC0 /* Helpers */,
+				0CEF37251E6CCFE00088F913 /* Assets */,
+				0CEF37241E6CCFD30088F913 /* Model */,
+				0CEF37231E6CCFC30088F913 /* Controller */,
 				0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */,
-				0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */,
 				0CE5E59E1E6CA83B00D3B546 /* Main.storyboard */,
-				0CE5E5C81E6CA91A00D3B546 /* icon.pdf */,
 				0CE5E5A11E6CA83B00D3B546 /* Assets.xcassets */,
 				0CE5E5A31E6CA83B00D3B546 /* LaunchScreen.storyboard */,
 				0CE5E5A61E6CA83B00D3B546 /* Info.plist */,
@@ -143,6 +163,33 @@
 				0CE5E5BC1E6CA83C00D3B546 /* Info.plist */,
 			);
 			path = SuperkartUITests;
+			sourceTree = "<group>";
+		};
+		0CEF37231E6CCFC30088F913 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */,
+				0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0CEF37241E6CCFD30088F913 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C0535EA1E885C7800A4AEC0 /* User.swift */,
+				0C0535EC1E885DA500A4AEC0 /* ShoppingList.swift */,
+				0C0535EE1E885E4400A4AEC0 /* Item.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0CEF37251E6CCFE00088F913 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0CE5E5C81E6CA91A00D3B546 /* icon.pdf */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		A03B9EA52D75C31708CAAB32 /* Pods */ = {
@@ -454,8 +501,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C0535EF1E885E4400A4AEC0 /* Item.swift in Sources */,
 				0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */,
+				0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */,
+				0C0535ED1E885DA500A4AEC0 /* ShoppingList.swift in Sources */,
 				0CE5E59B1E6CA83B00D3B546 /* AppDelegate.swift in Sources */,
+				0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */,
+				0C0535EB1E885C7800A4AEC0 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

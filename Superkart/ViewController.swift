@@ -30,6 +30,7 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
         return .lightContent
     }
     
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if ((error) != nil) {
             // Process error
@@ -46,6 +47,12 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
         //logout
     }
     
+    //MARK: - IBActions
+    
+    @IBAction func manualLogin(_ sender: Any) {
+        self.performSegue(withIdentifier: "loginSegue", sender: self)
+    }
+        
 
 }
 

@@ -23,12 +23,14 @@ PODS:
   - Realm/Headers (1.1.0)
   - RealmSwift (1.1.0):
     - Realm (= 1.1.0)
+  - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - FacebookCore (~> 0.2.0)
   - FacebookLogin (~> 0.2.0)
   - RealmSwift
+  - VCMaterialDesignIcons
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
@@ -39,7 +41,8 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: 81b6bba7f12f27ad2ed8896c08b8b18567488c4a
+PODFILE CHECKSUM: cd2693054e0f950c9343f5bd35aa86420c2fd987
 
 COCOAPODS: 1.2.0

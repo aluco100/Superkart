@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F0186D949730E9A71E4346DEC099CD5B'
-               BlueprintName = 'RealmSwift'
+               BlueprintIdentifier = '2CA4C35FAB01AC354AD1514003A14C89'
+               BlueprintName = 'VCMaterialDesignIcons'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RealmSwift.framework'>
+               BuildableName = 'VCMaterialDesignIcons.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

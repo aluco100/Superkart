@@ -7,6 +7,7 @@ target 'Superkart' do
   pod 'FacebookLogin','~>0.2.0'
   pod 'Alamofire','~>4.0'
   pod 'RealmSwift'
+  pod 'VCMaterialDesignIcons'
 
 end
 target 'SuperkartTests' do
