@@ -8,6 +8,8 @@ target 'Superkart' do
   pod 'Alamofire','~>4.0'
   pod 'RealmSwift'
   pod 'VCMaterialDesignIcons'
+  pod 'BarcodeScanner'
+  pod 'FontAwesomeKit'
 
 end
 target 'SuperkartTests' do

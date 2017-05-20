@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import VCMaterialDesignIcons
+import BarcodeScanner
+import FontAwesomeKit
 
-class SKShoppingViewController: UIViewController {
+class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, BarcodeScannerErrorDelegate, BarcodeScannerDismissalDelegate, UITableViewDelegate, UITableViewDataSource {
 
     
     //MARK: - IBOutlets
@@ -20,7 +21,7 @@ class SKShoppingViewController: UIViewController {
     @IBOutlet var shoppingTotalToPay: UILabel!
     @IBOutlet var shoppingPay: UIButton!
     
-    
+    var storage: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,31 +41,76 @@ class SKShoppingViewController: UIViewController {
         self.view.backgroundColor = SKColors().defaultColor
         
         //nav bar settings
-        self.shoppingNavBar.backgroundColor = SKColors().defaultColor
+        self.shoppingNavBar.barTintColor = SKColors().defaultColor
+        self.shoppingNavBar.barStyle = .black
         
         
-        let config = VCMaterialDesignIcons.icon(withCode: "\(VCMaterialDesignIconCode().md_settings)", fontSize: 20.0)
-        
+        let config = FAKMaterialIcons.settingsIcon(withSize: 30.0)
         config!.addAttribute(NSForegroundColorAttributeName, value: UIColor.white)
+        self.shoppingConfigurations.setImage(config!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
+        self.shoppingConfigurations.setTitle("", for: .normal)
         
-        self.shoppingConfigurations.setImage(config!.image(), for: .normal)
-        self.shoppingConfigurations.titleLabel!.text = ""
-        
-        let photo = VCMaterialDesignIcons.icon(withCode: "\(VCMaterialDesignIconCode().md_camera)", fontSize: 20.0)
-        
-        photo!.addAttribute(NSForegroundColorAttributeName, value: UIColor.white)
-        
-        self.shoppingTakePhoto.setImage(photo!.image(), for: .normal)
-        self.shoppingTakePhoto.titleLabel!.text = ""
+        let photo = FAKMaterialIcons.shoppingCartPlusIcon(withSize: 30.0)
+        photo!.addAttributes([NSForegroundColorAttributeName : UIColor.white])
+        self.shoppingTakePhoto.setImage(photo!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
+        self.shoppingTakePhoto.setTitle("", for: .normal)
+        self.shoppingTakePhoto.addTarget(self, action: #selector(scanProduct), for: .touchUpInside)
         
         //TableView Config
         
         self.shoppingTableView.backgroundColor = SKColors().defaultColor
-        
+        self.shoppingTableView.delegate = self
+        self.shoppingTableView.dataSource = self
         
     }
     
+    func scanProduct(){
+        
+        let scanner: BarcodeScannerController = BarcodeScannerController()
+        scanner.codeDelegate = self
+        scanner.errorDelegate = self
+        scanner.dismissalDelegate = self
+        
+        self.present(scanner, animated: true, completion: nil)
+        
+    }
     
+    func barcodeScanner(_ controller: BarcodeScannerController, didReceiveError error: Error) {
+        controller.resetWithError(message: "Producto no encontrado")
+    }
+    
+    func barcodeScanner(_ controller: BarcodeScannerController, didCaptureCode code: String, type: String) {
+        print(code)
+        self.storage.append(code)
+        self.shoppingTableView.reloadData()
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func barcodeScannerDidDismiss(_ controller: BarcodeScannerController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.storage.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productIdentifier", for: indexPath)
+        
+        cell.textLabel!.text = self.storage[indexPath.row]
+        
+        return cell
+        
+    }
+    
+        
+
     /*
     // MARK: - Navigation
 
