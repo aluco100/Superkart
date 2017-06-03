@@ -14,12 +14,12 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
 
     
     //MARK: - IBOutlets
-    @IBOutlet var shoppingNavBar: UINavigationBar!
     @IBOutlet var shoppingConfigurations: UIButton!
     @IBOutlet var shoppingTakePhoto: UIButton!
     @IBOutlet var shoppingTableView: UITableView!
     @IBOutlet var shoppingTotalToPay: UILabel!
     @IBOutlet var shoppingPay: UIButton!
+    @IBOutlet weak var shoppingPayContainer: UIView!
     
     var storage: [String] = []
     
@@ -38,11 +38,10 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
 
     func setup(){
         //background color
-        self.view.backgroundColor = SKColors().defaultColor
+        self.view.backgroundColor = SKColors().backgroundColor
         
         //nav bar settings
-        self.shoppingNavBar.barTintColor = SKColors().defaultColor
-        self.shoppingNavBar.barStyle = .black
+        self.navigationController?.navigationBar.barTintColor = SKColors().navColor
         
         
         let config = FAKMaterialIcons.settingsIcon(withSize: 30.0)
@@ -58,9 +57,12 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
         //TableView Config
         
-        self.shoppingTableView.backgroundColor = SKColors().defaultColor
+        self.shoppingTableView.backgroundColor = SKColors().backgroundColor
         self.shoppingTableView.delegate = self
         self.shoppingTableView.dataSource = self
+        
+        //Shopping Pay Container
+        self.shoppingPayContainer.backgroundColor = SKColors().main_green
         
     }
     

@@ -10,6 +10,8 @@ target 'Superkart' do
   pod 'VCMaterialDesignIcons'
   pod 'BarcodeScanner'
   pod 'FontAwesomeKit'
+  pod 'HexColors'
+  pod 'ECSlidingViewController', '~> 2.0.3'
 
 end
 target 'SuperkartTests' do

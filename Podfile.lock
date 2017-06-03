@@ -7,6 +7,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - ECSlidingViewController (2.0.3)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -40,6 +41,7 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.2.1):
     - FontAwesomeKit/Core
+  - HexColors (5.0.1)
   - Realm (1.1.0):
     - Realm/Headers (= 1.1.0)
   - Realm/Headers (1.1.0)
@@ -50,9 +52,11 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - BarcodeScanner
+  - ECSlidingViewController (~> 2.0.3)
   - FacebookCore (~> 0.2.0)
   - FacebookLogin (~> 0.2.0)
   - FontAwesomeKit
+  - HexColors
   - RealmSwift
   - VCMaterialDesignIcons
 
@@ -60,15 +64,17 @@ SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
   BarcodeScanner: 266ab4b479d407b74bc4b473fa5020b4523ad9e3
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  ECSlidingViewController: 6485c14f23b4487e9946535421ca8f111f86cc53
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 2d16979b28fe28c2b95af0d275ad5f9703c6c8de
   FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
+  HexColors: d642e696de77aa919584012e80bf62a4b099cee1
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: a429c333fcaa1eaff8bc91dc5ab4fca518726f5d
+PODFILE CHECKSUM: a64c38921edaf6c5def0fd886864ee630ae33a01
 
 COCOAPODS: 1.2.0

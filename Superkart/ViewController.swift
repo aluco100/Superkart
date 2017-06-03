@@ -15,7 +15,7 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
     @IBOutlet var fbButton: FBSDKLoginButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 65/255, green: 117/255, blue: 5/255, alpha: 100)
+        self.view.backgroundColor = SKColors().backgroundColor
         
         self.fbButton.delegate = self
         // Do any additional setup after loading the view, typically from a nib.

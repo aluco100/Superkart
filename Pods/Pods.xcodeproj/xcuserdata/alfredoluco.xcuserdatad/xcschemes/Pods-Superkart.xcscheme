@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D76CBC41BA028F93B2AD20F8B53DDCC0"
+               BlueprintIdentifier = "E600AAD82052FDE587BB72DC84E7D8A0"
                BuildableName = "Pods_Superkart.framework"
                BlueprintName = "Pods-Superkart"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D76CBC41BA028F93B2AD20F8B53DDCC0"
+            BlueprintIdentifier = "E600AAD82052FDE587BB72DC84E7D8A0"
             BuildableName = "Pods_Superkart.framework"
             BlueprintName = "Pods-Superkart"
             ReferencedContainer = "container:Pods.xcodeproj">
