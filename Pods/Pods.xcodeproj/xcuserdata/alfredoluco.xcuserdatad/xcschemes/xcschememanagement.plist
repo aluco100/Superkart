@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>BarcodeScanner-BarcodeScanner.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -59,6 +64,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ObjectMapper+Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Superkart.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -102,7 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>13599D435BF27EAE2E9844821783ECB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>18A65C851ACB98ADD153E769A1E1B3D2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1BECF98F5D80315F4CA333AB7B4CB512</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,6 +138,16 @@
 			<true/>
 		</dict>
 		<key>2D0E1FF1272770259C68078F549263EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>332AF934DFEB76D84962E809779BA5E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,17 +172,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7759070C59C2DBF01D384B875646764A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92D58B736EAAC7B298BA4DA2CDE3A5C6</key>
+		<key>9502FB01641FBABB78522037E882757B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,22 +187,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A9C2600C737E21AA61B2C47EB7AA9327</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4BC8D162B1B45CF244C641528603EA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E600AAD82052FDE587BB72DC84E7D8A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>EFAAB8230EA40F1F8FE61671783A5DEF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F38997EAC8D6B0059519E7311A093C05</key>
 		<dict>
 			<key>primary</key>
 			<true/>

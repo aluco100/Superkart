@@ -8,20 +8,29 @@
 
 import Foundation
 import RealmSwift
+import ObjectMapper
+import ObjectMapper_Realm
 
-class Item: Object {
+class Item: Object,Mappable  {
     
     //MARK: - Properties
     private dynamic var id: Int = 0
     public dynamic var name: String = ""
     public dynamic var cost: Int = 0
+    public dynamic var barcode: String = ""
     
     //MARK: - Init
-    convenience init(withId: Int, withName: String, withCost: Int) {
+    
+    required convenience init?(map: Map) {
         self.init()
-        self.id = withId
-        self.name = withName
-        self.cost = withCost
+    }
+    
+    //MARK: - Mapping
+    func mapping(map: Map) {
+        id<-map["idItem"]
+        name<-map["name"]
+        cost<-map["price"]
+        barcode<-map["barcode"]
     }
     
     //MARK: - Methods

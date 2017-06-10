@@ -15,6 +15,8 @@
 		0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F31E886A9600A4AEC0 /* SKColors.swift */; };
 		0CB25D9E1EEC269100A72E5C /* SKMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB25D9D1EEC269100A72E5C /* SKMenuViewController.swift */; };
 		0CB25DA21EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB25DA11EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift */; };
+		0CB25DA51EEC485800A72E5C /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB25DA41EEC485800A72E5C /* ItemManager.swift */; };
+		0CB25DA71EEC517700A72E5C /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB25DA61EEC517700A72E5C /* URLManager.swift */; };
 		0CB9DA1A1EE30B5300690A8C /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CB9DA101EE30B5300690A8C /* OpenSans-Bold.ttf */; };
 		0CB9DA1B1EE30B5300690A8C /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CB9DA111EE30B5300690A8C /* OpenSans-BoldItalic.ttf */; };
 		0CB9DA1C1EE30B5300690A8C /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CB9DA121EE30B5300690A8C /* OpenSans-ExtraBold.ttf */; };
@@ -62,6 +64,8 @@
 		0C0535F31E886A9600A4AEC0 /* SKColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKColors.swift; sourceTree = "<group>"; };
 		0CB25D9D1EEC269100A72E5C /* SKMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMenuViewController.swift; sourceTree = "<group>"; };
 		0CB25DA11EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMenuItemTableViewCell.swift; sourceTree = "<group>"; };
+		0CB25DA41EEC485800A72E5C /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		0CB25DA61EEC517700A72E5C /* URLManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		0CB9DA101EE30B5300690A8C /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		0CB9DA111EE30B5300690A8C /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		0CB9DA121EE30B5300690A8C /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 			name = MenuCells;
 			sourceTree = "<group>";
 		};
+		0CB25DA31EEC484200A72E5C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0CB25DA41EEC485800A72E5C /* ItemManager.swift */,
+				0CB25DA61EEC517700A72E5C /* URLManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		0CB9DA0F1EE30B3B00690A8C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +204,7 @@
 		0CE5E5991E6CA83B00D3B546 /* Superkart */ = {
 			isa = PBXGroup;
 			children = (
+				0CB25DA31EEC484200A72E5C /* Managers */,
 				0CB25D9F1EEC2BF600A72E5C /* ViewClasses */,
 				0CB9DA0F1EE30B3B00690A8C /* Fonts */,
 				0C0535F21E886A8500A4AEC0 /* Helpers */,
@@ -575,8 +589,10 @@
 				0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */,
 				0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */,
 				0CB25DA21EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift in Sources */,
+				0CB25DA71EEC517700A72E5C /* URLManager.swift in Sources */,
 				0C0535ED1E885DA500A4AEC0 /* ShoppingList.swift in Sources */,
 				0CE5E59B1E6CA83B00D3B546 /* AppDelegate.swift in Sources */,
+				0CB25DA51EEC485800A72E5C /* ItemManager.swift in Sources */,
 				0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */,
 				0C0535EB1E885C7800A4AEC0 /* User.swift in Sources */,
 				0CB25D9E1EEC269100A72E5C /* SKMenuViewController.swift in Sources */,

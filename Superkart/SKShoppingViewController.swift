@@ -105,7 +105,7 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "productIdentifier", for: indexPath)
         
-        cell.textLabel!.text = self.storage[indexPath.row]
+        cell.textLabel!.text =  ItemManager.sharedInstance.findItem(barcode: self.storage[indexPath.row])!.name
         
         return cell
         

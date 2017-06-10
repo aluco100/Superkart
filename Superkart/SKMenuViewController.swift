@@ -33,6 +33,7 @@ class SKMenuViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.menuTableView.separatorStyle = .none
         self.menuTableView.backgroundColor = SKColors().navColor
         
+        
         self.rightConstraint.constant = self.slidingViewController().anchorRightPeekAmount
         
     }

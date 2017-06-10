@@ -12,6 +12,9 @@ target 'Superkart' do
   pod 'FontAwesomeKit'
   pod 'HexColors'
   pod 'ECSlidingViewController', '~> 2.0.3'
+  pod 'ObjectMapper', '~> 2.2'
+  pod 'AlamofireObjectMapper', '~> 4.0'
+  pod "ObjectMapper+Realm"
 
 end
 target 'SuperkartTests' do
