@@ -44,9 +44,9 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         self.navigationController?.navigationBar.barTintColor = SKColors().navColor
         
         
-        let config = FAKMaterialIcons.settingsIcon(withSize: 30.0)
-        config!.addAttribute(NSForegroundColorAttributeName, value: UIColor.white)
-        self.shoppingConfigurations.setImage(config!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
+        let menu = FAKMaterialIcons.menuIcon(withSize: 30.0)
+        menu!.addAttribute(NSForegroundColorAttributeName, value: UIColor.white)
+        self.shoppingConfigurations.setImage(menu!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
         self.shoppingConfigurations.setTitle("", for: .normal)
         
         let photo = FAKMaterialIcons.shoppingCartPlusIcon(withSize: 30.0)
