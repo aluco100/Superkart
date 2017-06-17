@@ -53,5 +53,11 @@ class SKProductCell: UITableViewCell {
     
     func quantityProducts(sender: UIStepper){
         self.productQuantityLabel.text = "Cantidad: \(Int(sender.value))"
+        CATransaction.begin()
+        CATransaction.setCompletionBlock({
+            let nc = NotificationCenter.default
+            nc.post(name: NSNotification.Name(rawValue: "updateItemList"), object: nil, userInfo: nil)
+        })
+        CATransaction.commit()
     }
 }

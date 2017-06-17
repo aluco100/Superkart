@@ -22,6 +22,7 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
     @IBOutlet weak var shoppingPayContainer: UIView!
     
     var storage: [String] = []
+    var total_value: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,8 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         //Shopping Pay Container
         self.shoppingPayContainer.backgroundColor = SKColors().main_green
         
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "updateItemList"), object: nil, queue: nil, using: updateValue)
+        
     }
     
     func scanProduct(){
@@ -108,6 +111,8 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "productIdentifier", for: indexPath) as? SKProductCell{
             cell.item = ItemManager.sharedInstance.findItem(barcode: self.storage[indexPath.row])!
+            self.total_value += Int(cell.productQuantityStepper.value) * cell.item.cost
+            self.shoppingTotalToPay.text = SKNumberFormatter().currencyStyle(number: self.total_value)
             cell.setup()
             return cell
         }
@@ -115,6 +120,10 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
     }
     
+    func updateValue(notification: Notification)->Void{
+        self.total_value = 0
+        self.shoppingTableView.reloadData()
+    }
         
 
     /*
