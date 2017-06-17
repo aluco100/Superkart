@@ -17,7 +17,7 @@ class Item: Object,Mappable  {
     private dynamic var id: Int = 0
     public dynamic var name: String = ""
     public dynamic var cost: Int = 0
-    public dynamic var barcode: String = ""
+    public dynamic var barcode: Int = 0
     
     //MARK: - Init
     
@@ -31,6 +31,10 @@ class Item: Object,Mappable  {
         name<-map["name"]
         cost<-map["price"]
         barcode<-map["barcode"]
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     //MARK: - Methods

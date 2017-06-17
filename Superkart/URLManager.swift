@@ -22,7 +22,7 @@ class URLsManager: NSObject {
         //base URL
         
         static var baseURL: String{
-            return "http://localhost/"
+            return "http://superkart.esy.es/"
             
         }
         
@@ -39,7 +39,7 @@ class URLsManager: NSObject {
             
             switch self {
             case .getItems(_):
-                return "superkartAPI/getItems.php"
+                return "getItems.php"
             }
             
         }

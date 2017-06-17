@@ -58,6 +58,9 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         //TableView Config
         
         self.shoppingTableView.backgroundColor = SKColors().backgroundColor
+        self.shoppingTableView.separatorStyle = .none
+        self.shoppingTableView.estimatedRowHeight = 100.0
+        self.shoppingTableView.rowHeight = UITableViewAutomaticDimension
         self.shoppingTableView.delegate = self
         self.shoppingTableView.dataSource = self
         
@@ -103,11 +106,12 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "productIdentifier", for: indexPath)
-        
-        cell.textLabel!.text =  ItemManager.sharedInstance.findItem(barcode: self.storage[indexPath.row])!.name
-        
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "productIdentifier", for: indexPath) as? SKProductCell{
+            cell.item = ItemManager.sharedInstance.findItem(barcode: self.storage[indexPath.row])!
+            cell.setup()
+            return cell
+        }
+        return UITableViewCell()
         
     }
     

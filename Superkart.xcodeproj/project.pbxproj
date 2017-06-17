@@ -13,6 +13,8 @@
 		0C0535EF1E885E4400A4AEC0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535EE1E885E4400A4AEC0 /* Item.swift */; };
 		0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */; };
 		0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F31E886A9600A4AEC0 /* SKColors.swift */; };
+		0C328D4B1EF56614003A8608 /* SKNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */; };
+		0C7459CB1EF5607E00883264 /* SKProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7459CA1EF5607E00883264 /* SKProductCell.swift */; };
 		0CB25D9E1EEC269100A72E5C /* SKMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB25D9D1EEC269100A72E5C /* SKMenuViewController.swift */; };
 		0CB25DA21EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB25DA11EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift */; };
 		0CB25DA51EEC485800A72E5C /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB25DA41EEC485800A72E5C /* ItemManager.swift */; };
@@ -62,6 +64,8 @@
 		0C0535EE1E885E4400A4AEC0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKShoppingViewController.swift; sourceTree = "<group>"; };
 		0C0535F31E886A9600A4AEC0 /* SKColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKColors.swift; sourceTree = "<group>"; };
+		0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNumberFormatter.swift; sourceTree = "<group>"; };
+		0C7459CA1EF5607E00883264 /* SKProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKProductCell.swift; sourceTree = "<group>"; };
 		0CB25D9D1EEC269100A72E5C /* SKMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMenuViewController.swift; sourceTree = "<group>"; };
 		0CB25DA11EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		0CB25DA41EEC485800A72E5C /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
@@ -133,13 +137,23 @@
 			isa = PBXGroup;
 			children = (
 				0C0535F31E886A9600A4AEC0 /* SKColors.swift */,
+				0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		0C7459C91EF55FF600883264 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				0C7459CA1EF5607E00883264 /* SKProductCell.swift */,
+			);
+			name = HomeView;
 			sourceTree = "<group>";
 		};
 		0CB25D9F1EEC2BF600A72E5C /* ViewClasses */ = {
 			isa = PBXGroup;
 			children = (
+				0C7459C91EF55FF600883264 /* HomeView */,
 				0CB25DA01EEC2C0000A72E5C /* MenuCells */,
 			);
 			name = ViewClasses;
@@ -586,8 +600,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C0535EF1E885E4400A4AEC0 /* Item.swift in Sources */,
+				0C7459CB1EF5607E00883264 /* SKProductCell.swift in Sources */,
 				0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */,
 				0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */,
+				0C328D4B1EF56614003A8608 /* SKNumberFormatter.swift in Sources */,
 				0CB25DA21EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift in Sources */,
 				0CB25DA71EEC517700A72E5C /* URLManager.swift in Sources */,
 				0C0535ED1E885DA500A4AEC0 /* ShoppingList.swift in Sources */,
