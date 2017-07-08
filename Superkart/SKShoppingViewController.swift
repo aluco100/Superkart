@@ -95,9 +95,21 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
     func barcodeScanner(_ controller: BarcodeScannerController, didCaptureCode code: String, type: String) {
         print(code)
         
-        let item = self.itemManager.findItem(barcode: code)!
-        self.itemManager.updateItem(item: item, quantity: 1)
-        self.storage.append(item)
+        if let item = self.itemManager.findItem(barcode: code){
+            self.itemManager.updateItem(item: item, quantity: 1)
+            self.storage.append(item)
+        }else{
+            self.itemManager.getItem(barcode: code, success: {
+                let item = self.itemManager.findItem(barcode: code)!
+                self.itemManager.updateItem(item: item, quantity: 1)
+                self.storage.append(item)
+            }, failure: {
+                error in
+                //despues que hacer con esto
+                print(error)
+            })
+        }
+        
         self.shoppingTableView.reloadData()
         controller.dismiss(animated: true, completion: nil)
     }

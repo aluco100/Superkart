@@ -56,6 +56,32 @@ class ItemManager {
         
     }
     
+    public func getItem(barcode: String, success: @escaping ()->Void, failure: @escaping (_ error: NSError)->Void){
+        
+        let params = [
+            "barcode" : barcode
+        ]
+        
+        Alamofire.request(URLsManager.Router.getItem(parameters: params)).responseObject(completionHandler: {
+            (response: DataResponse<Item>) in
+            
+            if let item = response.result.value{
+                
+                let realm = try! Realm()
+                
+                try! realm.write {
+                    realm.add(item, update: true)
+                }
+                success()
+            }else{
+                print(response.response as Any)
+                failure(response.result.error! as NSError)
+            }
+            
+        })
+        
+    }
+    
     //MARK: - Find Item
     
     public func findItem(barcode: String)->Item?{

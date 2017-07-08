@@ -18,6 +18,7 @@ class URLsManager: NSObject {
         
         //set request constants
         case getItems(parameters: Parameters?)
+        case getItem(parameters: Parameters?)
         
         //base URL
         
@@ -31,6 +32,8 @@ class URLsManager: NSObject {
             switch self {
             case .getItems:
                 return .get
+            case .getItem:
+                return .get
             }
         }
         
@@ -40,6 +43,8 @@ class URLsManager: NSObject {
             switch self {
             case .getItems(_):
                 return "getItems.php"
+            case .getItem(_):
+                return "getItem.php"
             }
             
         }
@@ -54,6 +59,9 @@ class URLsManager: NSObject {
             
             switch self {
             case .getItems(let parameters):
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                break
+            case .getItem(let parameters):
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
                 break
             }
