@@ -18,6 +18,7 @@ class Item: Object,Mappable  {
     public dynamic var name: String = ""
     public dynamic var cost: Int = 0
     public dynamic var barcode: Int = 0
+    public dynamic var quantity: Int = 0
     
     //MARK: - Init
     

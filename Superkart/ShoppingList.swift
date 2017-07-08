@@ -16,12 +16,9 @@ class ShoppingList: Object {
     public var items: List<Item> = List<Item>()
     
     //MARK: - Init
-    convenience init(withId: Int, withItems: List<Item>) {
-        self.init()
-        self.id = withId
-        self.items = withItems
-    }
-    
+//    required convenience init() {
+//        self.init()
+//    }
     //MARK: - Methods
     public func getID()->Int{
         return self.id

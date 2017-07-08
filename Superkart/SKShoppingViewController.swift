@@ -21,12 +21,15 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
     @IBOutlet var shoppingPay: UIButton!
     @IBOutlet weak var shoppingPayContainer: UIView!
     
-    var storage: [String] = []
+    var storage: [Item] = []
     var total_value: Int = 0
+    var itemManager: ItemManager = ItemManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.storage = self.itemManager.findItemsToBuy()
+        
         self.setup()
         // Do any additional setup after loading the view.
     }
@@ -50,7 +53,7 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         self.shoppingConfigurations.setImage(menu!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
         self.shoppingConfigurations.setTitle("", for: .normal)
         
-        let photo = FAKMaterialIcons.shoppingCartPlusIcon(withSize: 30.0)
+        let photo = FAKFontAwesome.barcodeIcon(withSize: 30.0)
         photo!.addAttributes([NSForegroundColorAttributeName : UIColor.white])
         self.shoppingTakePhoto.setImage(photo!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
         self.shoppingTakePhoto.setTitle("", for: .normal)
@@ -72,6 +75,8 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
     }
     
+    //MARK: - Scanner
+    
     func scanProduct(){
         
         let scanner: BarcodeScannerController = BarcodeScannerController()
@@ -89,7 +94,10 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
     
     func barcodeScanner(_ controller: BarcodeScannerController, didCaptureCode code: String, type: String) {
         print(code)
-        self.storage.append(code)
+        
+        let item = self.itemManager.findItem(barcode: code)!
+        self.itemManager.updateItem(item: item, quantity: 1)
+        self.storage.append(item)
         self.shoppingTableView.reloadData()
         controller.dismiss(animated: true, completion: nil)
     }
@@ -110,13 +118,29 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "productIdentifier", for: indexPath) as? SKProductCell{
-            cell.item = ItemManager.sharedInstance.findItem(barcode: self.storage[indexPath.row])!
-            self.total_value += Int(cell.productQuantityStepper.value) * cell.item.cost
+            cell.item = self.storage[indexPath.row]
+            self.total_value += Int(cell.productQuantityStepper.value) * cell.item!.cost
             self.shoppingTotalToPay.text = SKNumberFormatter().currencyStyle(number: self.total_value)
             cell.setup()
             return cell
         }
         return UITableViewCell()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete: UITableViewRowAction = UITableViewRowAction(style: .default, title: "Eliminar", handler: {
+            (rowAction: UITableViewRowAction, indexPath: IndexPath) in
+            
+            
+            self.itemManager.updateItem(item: self.storage[indexPath.row], quantity: 0)
+            self.storage = self.itemManager.findItemsToBuy()
+            self.shoppingTableView.reloadData()
+            
+        })
+        
+        return [delete]
         
     }
     

@@ -38,21 +38,24 @@ class SKProductCell: UITableViewCell {
         shoppingBasket?.setAttributes([NSForegroundColorAttributeName: UIColor.white])
         self.iconImageView.image = shoppingBasket?.image(with: CGSize(width: 50.0, height: 50.0))
         self.productQuantityLabel.text = "Cantidad: 1"
-        self.productQuantityStepper.value = 1
+        self.productQuantityStepper.value = 1.0
         self.productQuantityStepper.addTarget(self, action: #selector(self.quantityProducts(sender:)), for: .touchUpInside)
     }
     
     func setup(){
         
         if (self.item != nil) {
-            self.productNameLabel.text = self.item.name
-            self.productPriceLabel.text = "\(SKNumberFormatter().currencyStyle(number: self.item.cost))"
+            self.productNameLabel.text = self.item!.name
+            self.productPriceLabel.text = "\(SKNumberFormatter().currencyStyle(number: self.item!.cost))"
+            self.productQuantityStepper.value = Double(self.item.quantity)
+            self.productQuantityLabel.text = "Cantidad: \(Int(self.productQuantityStepper.value))"
         }
         
     }
     
     func quantityProducts(sender: UIStepper){
         self.productQuantityLabel.text = "Cantidad: \(Int(sender.value))"
+        ItemManager.sharedInstance.updateItem(item: self.item, quantity: Int(sender.value))
         CATransaction.begin()
         CATransaction.setCompletionBlock({
             let nc = NotificationCenter.default

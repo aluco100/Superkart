@@ -68,4 +68,23 @@ class ItemManager {
         return nil
     }
     
+    public func findItemsToBuy()->[Item]{
+        let realm = try! Realm()
+        
+        return Array(realm.objects(Item.self).filter("quantity>0"))
+        
+    }
+    
+    public func updateItem(item: Item, quantity: Int?){
+        let realm = try! Realm()
+        
+        try! realm.write {
+            if(quantity != nil){
+                item.quantity = quantity!
+            }
+            realm.add(item, update: true)
+        }
+        
+    }
+    
 }
