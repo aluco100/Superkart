@@ -29,6 +29,10 @@
 		0CB9DA211EE30B5300690A8C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CB9DA171EE30B5300690A8C /* OpenSans-Regular.ttf */; };
 		0CB9DA221EE30B5300690A8C /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CB9DA181EE30B5300690A8C /* OpenSans-Semibold.ttf */; };
 		0CB9DA231EE30B5300690A8C /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CB9DA191EE30B5300690A8C /* OpenSans-SemiboldItalic.ttf */; };
+		0CD37A161F1A4D7800A883D1 /* SKMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD37A151F1A4D7800A883D1 /* SKMenuButton.swift */; };
+		0CD37A181F1A4E7000A883D1 /* SKShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD37A171F1A4E7000A883D1 /* SKShoppingListViewController.swift */; };
+		0CD37A1B1F1A54AF00A883D1 /* SKShoppingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD37A1A1F1A54AF00A883D1 /* SKShoppingListCell.swift */; };
+		0CD37A1D1F1A572100A883D1 /* ShoppingListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD37A1C1F1A572100A883D1 /* ShoppingListManager.swift */; };
 		0CE5E59B1E6CA83B00D3B546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */; };
 		0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */; };
 		0CE5E5A01E6CA83B00D3B546 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5E59E1E6CA83B00D3B546 /* Main.storyboard */; };
@@ -80,6 +84,10 @@
 		0CB9DA171EE30B5300690A8C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		0CB9DA181EE30B5300690A8C /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		0CB9DA191EE30B5300690A8C /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		0CD37A151F1A4D7800A883D1 /* SKMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMenuButton.swift; sourceTree = "<group>"; };
+		0CD37A171F1A4E7000A883D1 /* SKShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKShoppingListViewController.swift; sourceTree = "<group>"; };
+		0CD37A1A1F1A54AF00A883D1 /* SKShoppingListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKShoppingListCell.swift; sourceTree = "<group>"; };
+		0CD37A1C1F1A572100A883D1 /* ShoppingListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListManager.swift; sourceTree = "<group>"; };
 		0CE5E5971E6CA83B00D3B546 /* Superkart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Superkart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 			children = (
 				0C0535F31E886A9600A4AEC0 /* SKColors.swift */,
 				0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */,
+				0CD37A151F1A4D7800A883D1 /* SKMenuButton.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -153,6 +162,7 @@
 		0CB25D9F1EEC2BF600A72E5C /* ViewClasses */ = {
 			isa = PBXGroup;
 			children = (
+				0CD37A191F1A548F00A883D1 /* ShoppingListView */,
 				0C7459C91EF55FF600883264 /* HomeView */,
 				0CB25DA01EEC2C0000A72E5C /* MenuCells */,
 			);
@@ -172,6 +182,7 @@
 			children = (
 				0CB25DA41EEC485800A72E5C /* ItemManager.swift */,
 				0CB25DA61EEC517700A72E5C /* URLManager.swift */,
+				0CD37A1C1F1A572100A883D1 /* ShoppingListManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -191,6 +202,14 @@
 				0CB9DA191EE30B5300690A8C /* OpenSans-SemiboldItalic.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		0CD37A191F1A548F00A883D1 /* ShoppingListView */ = {
+			isa = PBXGroup;
+			children = (
+				0CD37A1A1F1A54AF00A883D1 /* SKShoppingListCell.swift */,
+			);
+			name = ShoppingListView;
 			sourceTree = "<group>";
 		};
 		0CE5E58E1E6CA83B00D3B546 = {
@@ -258,6 +277,7 @@
 				0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */,
 				0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */,
 				0CB25D9D1EEC269100A72E5C /* SKMenuViewController.swift */,
+				0CD37A171F1A4E7000A883D1 /* SKShoppingListViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -601,8 +621,11 @@
 			files = (
 				0C0535EF1E885E4400A4AEC0 /* Item.swift in Sources */,
 				0C7459CB1EF5607E00883264 /* SKProductCell.swift in Sources */,
+				0CD37A181F1A4E7000A883D1 /* SKShoppingListViewController.swift in Sources */,
 				0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */,
 				0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */,
+				0CD37A1B1F1A54AF00A883D1 /* SKShoppingListCell.swift in Sources */,
+				0CD37A1D1F1A572100A883D1 /* ShoppingListManager.swift in Sources */,
 				0C328D4B1EF56614003A8608 /* SKNumberFormatter.swift in Sources */,
 				0CB25DA21EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift in Sources */,
 				0CB25DA71EEC517700A72E5C /* URLManager.swift in Sources */,
@@ -611,6 +634,7 @@
 				0CB25DA51EEC485800A72E5C /* ItemManager.swift in Sources */,
 				0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */,
 				0C0535EB1E885C7800A4AEC0 /* User.swift in Sources */,
+				0CD37A161F1A4D7800A883D1 /* SKMenuButton.swift in Sources */,
 				0CB25D9E1EEC269100A72E5C /* SKMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

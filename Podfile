@@ -15,6 +15,8 @@ target 'Superkart' do
   pod 'ObjectMapper', '~> 2.2'
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod "ObjectMapper+Realm"
+  pod "SearchTextField"
+  pod 'IQKeyboardManagerSwift'
 
 end
 target 'SuperkartTests' do

@@ -45,6 +45,7 @@ PODS:
   - FontAwesomeKit/Zocial (2.2.1):
     - FontAwesomeKit/Core
   - HexColors (5.0.1)
+  - IQKeyboardManagerSwift (4.0.9)
   - ObjectMapper (2.2.6)
   - ObjectMapper+Realm (0.3):
     - ObjectMapper
@@ -54,6 +55,7 @@ PODS:
   - Realm/Headers (1.1.0)
   - RealmSwift (1.1.0):
     - Realm (= 1.1.0)
+  - SearchTextField (1.1.1)
   - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
@@ -65,9 +67,11 @@ DEPENDENCIES:
   - FacebookLogin (~> 0.2.0)
   - FontAwesomeKit
   - HexColors
+  - IQKeyboardManagerSwift
   - ObjectMapper (~> 2.2)
   - ObjectMapper+Realm
   - RealmSwift
+  - SearchTextField
   - VCMaterialDesignIcons
 
 SPEC CHECKSUMS:
@@ -82,12 +86,14 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
   HexColors: d642e696de77aa919584012e80bf62a4b099cee1
+  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
   ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
   ObjectMapper+Realm: 98992926f775a4fdf1c025541b97c78119f15b8a
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  SearchTextField: 13ee7bb4e89b1ce598611556f3d4c93604c8b97c
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: 81c3d96aff9f72b3b4639d2709e04211d8b57f49
+PODFILE CHECKSUM: d771ab3edb9e41f39df2abbd3b9f4bab3e2aee99
 
 COCOAPODS: 1.2.0

@@ -93,7 +93,7 @@ class SKMenuViewController: UIViewController,UITableViewDelegate,UITableViewData
 //            self.performSegue(withIdentifier: "", sender: self)
             break
         case "Lista de Compras":
-//            self.performSegue(withIdentifier: "", sender: self)
+            self.performSegue(withIdentifier: "ShoppingListSegue", sender: self)
             break
         case "Cerrar Sesión":
             //TODO: Close Session

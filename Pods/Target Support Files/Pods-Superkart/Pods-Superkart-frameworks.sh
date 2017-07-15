@@ -100,10 +100,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FacebookLogin/FacebookLogin.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FontAwesomeKit/FontAwesomeKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HexColors/HexColors.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper/ObjectMapper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper+Realm/ObjectMapper_Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VCMaterialDesignIcons/VCMaterialDesignIcons.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -118,10 +120,12 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FacebookLogin/FacebookLogin.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FontAwesomeKit/FontAwesomeKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HexColors/HexColors.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper/ObjectMapper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper+Realm/ObjectMapper_Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VCMaterialDesignIcons/VCMaterialDesignIcons.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
