@@ -94,6 +94,18 @@ class ItemManager {
         return nil
     }
     
+    public func findItems(filter: NSPredicate?)->[Item]?{
+        do{
+            let realm =  try Realm()
+            
+            return filter != nil ? Array(realm.objects(Item.self).filter(filter!)) : Array(realm.objects(Item.self))
+            
+        }catch let error as NSError{
+            print(error)
+        }
+        return nil
+    }
+    
     public func findItemsToBuy()->[Item]{
         let realm = try! Realm()
         

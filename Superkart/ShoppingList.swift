@@ -19,6 +19,11 @@ class ShoppingList: Object {
 //    required convenience init() {
 //        self.init()
 //    }
+    
+    override static func primaryKey()->String?{
+        return "id"
+    }
+    
     //MARK: - Methods
     public func getID()->Int{
         return self.id
