@@ -104,7 +104,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SearchTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Stripe-Stripe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Stripe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -117,6 +132,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>02B0DABEC5BB6733B00D33FB90DD1A9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0CCEE450DEF32E835082B7243D5EBFF4</key>
 		<dict>
 			<key>primary</key>
@@ -177,7 +197,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62063E61110FA1A43C8BD7302502ED3B</key>
+		<key>60ADEF40CBD5273DC5DF520369247606</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6BCB2902417C0F248B0F483ABD4D4667</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>703FC542F461BA326A4DB61BECF0514C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,17 +232,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B4BC225E7EC26948054A3D07458FF2E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B4BC8D162B1B45CF244C641528603EA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B93571C5C47292C120D10B3326A9B29D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D913094C4497D4EAC761230E668A51E8</key>
+		<key>DC271E784310305826EBA2659CB97DB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

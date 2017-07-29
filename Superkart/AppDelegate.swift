@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import IQKeyboardManagerSwift
 import RealmSwift
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        self.updateItems()
         self.migrations()
+        Stripe.setDefaultPublishableKey("pk_test_orBdY6TxcwYxo8f7HswiWYaF")
         IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.statusBarStyle = .lightContent
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

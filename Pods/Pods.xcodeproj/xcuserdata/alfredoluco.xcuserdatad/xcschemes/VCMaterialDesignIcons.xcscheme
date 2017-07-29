@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '62063E61110FA1A43C8BD7302502ED3B'
+               BlueprintIdentifier = 'DC271E784310305826EBA2659CB97DB3'
                BlueprintName = 'VCMaterialDesignIcons'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'VCMaterialDesignIcons.framework'>

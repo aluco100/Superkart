@@ -105,7 +105,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper+Realm/ObjectMapper_Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VCMaterialDesignIcons/VCMaterialDesignIcons.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -125,7 +127,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper+Realm/ObjectMapper_Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VCMaterialDesignIcons/VCMaterialDesignIcons.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

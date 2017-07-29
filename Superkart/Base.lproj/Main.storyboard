@@ -107,6 +107,7 @@
                         <outlet property="rightConstraint" destination="coR-Y6-SW6" id="0bx-Of-M1W"/>
                         <segue destination="ABO-Lw-zvQ" kind="custom" identifier="shoppingSegue" customClass="ECSlidingSegue" id="tcA-Xz-F32"/>
                         <segue destination="aXH-gb-SbE" kind="custom" identifier="ShoppingListSegue" customClass="ECSlidingSegue" id="1Dh-2S-cGI"/>
+                        <segue destination="3Wc-sJ-KDJ" kind="custom" identifier="paymentSegue" customClass="ECSlidingSegue" id="5g4-gj-9js"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x4c-bT-FdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -525,6 +526,233 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jel-xb-eq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1224.8" y="781.25937031484261"/>
+        </scene>
+        <!--Métodos de pago-->
+        <scene sceneID="1c2-jb-RWg">
+            <objects>
+                <viewController id="ZOR-RP-ssR" customClass="SKPaymentViewController" customModule="Superkart" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PKb-aW-B9W"/>
+                        <viewControllerLayoutGuide type="bottom" id="k2d-3l-Twd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VJE-0B-fQl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L4Z-fe-cry">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scanIdentifier" rowHeight="161" id="1Zo-JE-qrI" customClass="SKScanCreditCardCell" customModule="Superkart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="161"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Zo-JE-qrI" id="eW9-To-qRE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="stx-FR-Ahm">
+                                                    <rect key="frame" x="67" y="16" width="240" height="128"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exl-0h-wmR">
+                                                            <rect key="frame" x="8" y="8" width="224" height="112"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bFC-11-DbL">
+                                                                    <rect key="frame" x="8" y="8" width="208" height="96"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="208" id="BVC-yZ-w91"/>
+                                                                        <constraint firstAttribute="height" constant="96" id="zfg-wB-p1O"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escanear Tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91b-6J-2fc">
+                                                                    <rect key="frame" x="49" y="91" width="127" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="bFC-11-DbL" firstAttribute="top" secondItem="Exl-0h-wmR" secondAttribute="topMargin" id="2Eh-Dk-onk"/>
+                                                                <constraint firstItem="bFC-11-DbL" firstAttribute="bottom" secondItem="Exl-0h-wmR" secondAttribute="bottomMargin" id="MKA-GX-EXC"/>
+                                                                <constraint firstItem="bFC-11-DbL" firstAttribute="trailing" secondItem="Exl-0h-wmR" secondAttribute="trailingMargin" id="P6z-RV-9Tv"/>
+                                                                <constraint firstItem="91b-6J-2fc" firstAttribute="centerX" secondItem="Exl-0h-wmR" secondAttribute="centerX" id="eat-sz-7Fd"/>
+                                                                <constraint firstAttribute="bottom" secondItem="91b-6J-2fc" secondAttribute="bottom" id="kSl-sh-BhK"/>
+                                                                <constraint firstItem="bFC-11-DbL" firstAttribute="leading" secondItem="Exl-0h-wmR" secondAttribute="leadingMargin" id="yrK-bC-Bbe"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="128" id="Awv-yP-jrX"/>
+                                                        <constraint firstItem="Exl-0h-wmR" firstAttribute="top" secondItem="stx-FR-Ahm" secondAttribute="topMargin" id="Brj-J1-w8I"/>
+                                                        <constraint firstAttribute="width" secondItem="stx-FR-Ahm" secondAttribute="height" multiplier="15:8" id="Jmc-zY-lbJ"/>
+                                                        <constraint firstAttribute="width" constant="240" id="j8L-2s-dDN"/>
+                                                        <constraint firstItem="Exl-0h-wmR" firstAttribute="trailing" secondItem="stx-FR-Ahm" secondAttribute="trailingMargin" id="mXW-xt-TVs"/>
+                                                        <constraint firstItem="Exl-0h-wmR" firstAttribute="leading" secondItem="stx-FR-Ahm" secondAttribute="leadingMargin" id="oFJ-V5-TBV"/>
+                                                        <constraint firstItem="Exl-0h-wmR" firstAttribute="bottom" secondItem="stx-FR-Ahm" secondAttribute="bottomMargin" id="zMM-SX-fzL"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="stx-FR-Ahm" firstAttribute="centerX" secondItem="eW9-To-qRE" secondAttribute="centerX" id="1Ue-sr-On9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="stx-FR-Ahm" secondAttribute="bottom" constant="8.5" id="9bE-xr-2jQ"/>
+                                                <constraint firstItem="stx-FR-Ahm" firstAttribute="centerY" secondItem="eW9-To-qRE" secondAttribute="centerY" id="j1m-QR-idx"/>
+                                                <constraint firstItem="stx-FR-Ahm" firstAttribute="top" secondItem="eW9-To-qRE" secondAttribute="topMargin" constant="8" id="voS-U2-hLh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="creditCardImageView" destination="bFC-11-DbL" id="YtW-V7-opY"/>
+                                            <outlet property="firstLayerView" destination="stx-FR-Ahm" id="mFC-2q-ylZ"/>
+                                            <outlet property="secondLayerView" destination="Exl-0h-wmR" id="d3r-ED-Tpr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditCardIdentifier" rowHeight="61" id="c9Z-LB-PyP" customClass="SKCreditCardCell" customModule="Superkart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="189" width="375" height="61"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c9Z-LB-PyP" id="4Rm-1Z-ou6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="D4X-Lj-Jyf">
+                                                    <rect key="frame" x="8" y="8" width="359" height="40"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fecha de Vencimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DM6-7I-Etp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="171.5" height="40"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qiF-Vn-4Yc">
+                                                            <rect key="frame" x="187.5" y="0.0" width="171.5" height="40"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="EHd-Fu-vub"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="D4X-Lj-Jyf" secondAttribute="trailing" id="0MN-io-26G"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="D4X-Lj-Jyf" secondAttribute="bottom" id="WBg-pq-fZU"/>
+                                                <constraint firstItem="D4X-Lj-Jyf" firstAttribute="leading" secondItem="4Rm-1Z-ou6" secondAttribute="leadingMargin" id="jxe-P5-ruG"/>
+                                                <constraint firstItem="D4X-Lj-Jyf" firstAttribute="top" secondItem="4Rm-1Z-ou6" secondAttribute="topMargin" id="q0s-DP-fRU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="CVVTextField" destination="qiF-Vn-4Yc" id="qsx-Id-l2e"/>
+                                            <outlet property="expirationDateTextField" destination="DM6-7I-Etp" id="tbx-Gd-uIR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryIdentifier" rowHeight="93" id="Ybi-jS-bhi" customClass="SKCountryCell" customModule="Superkart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="250" width="375" height="93"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ybi-jS-bhi" id="EsX-1N-vou">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mtf-Ak-yP6">
+                                                    <rect key="frame" x="8" y="8.5" width="359" height="66"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fk6-Ot-Rm2">
+                                                            <rect key="frame" x="8" y="8" width="343" height="50"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pais" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DvQ-d7-OwF">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="50"/>
+                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tao-hf-7Ud">
+                                                                    <rect key="frame" x="293" y="0.0" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="F7y-GK-jG2"/>
+                                                                        <constraint firstAttribute="width" constant="50" id="ppZ-Of-PiS"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="Tao-hf-7Ud" secondAttribute="trailing" id="hnx-Ac-GCu"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="1dS-aM-pFQ"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="fk6-Ot-Rm2" secondAttribute="bottom" id="LCm-kG-ni4"/>
+                                                        <constraint firstItem="fk6-Ot-Rm2" firstAttribute="leading" secondItem="mtf-Ak-yP6" secondAttribute="leadingMargin" id="W2J-hb-k7B"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="fk6-Ot-Rm2" secondAttribute="trailing" id="cxg-Ch-Eia"/>
+                                                        <constraint firstItem="fk6-Ot-Rm2" firstAttribute="top" secondItem="mtf-Ak-yP6" secondAttribute="topMargin" id="wBm-XG-CKo"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mtf-Ak-yP6" firstAttribute="leading" secondItem="EsX-1N-vou" secondAttribute="leadingMargin" id="21j-Td-XIC"/>
+                                                <constraint firstItem="mtf-Ak-yP6" firstAttribute="trailing" secondItem="EsX-1N-vou" secondAttribute="trailingMargin" id="MrZ-E3-WxV"/>
+                                                <constraint firstItem="mtf-Ak-yP6" firstAttribute="top" secondItem="EsX-1N-vou" secondAttribute="topMargin" id="dAU-CA-891"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mtf-Ak-yP6" secondAttribute="bottom" id="yYH-Ia-cwg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countryImageVIew" destination="Tao-hf-7Ud" id="8Yr-sA-wd1"/>
+                                            <outlet property="countryTextField" destination="DvQ-d7-OwF" id="pbH-nk-PIA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZOR-RP-ssR" id="prk-oH-nQL"/>
+                                    <outlet property="delegate" destination="ZOR-RP-ssR" id="3dH-YK-aVy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L4Z-fe-cry" firstAttribute="top" secondItem="PKb-aW-B9W" secondAttribute="bottom" constant="-64" id="UxL-Vw-wc7"/>
+                            <constraint firstAttribute="trailing" secondItem="L4Z-fe-cry" secondAttribute="trailing" id="cA3-7W-qNz"/>
+                            <constraint firstItem="k2d-3l-Twd" firstAttribute="top" secondItem="L4Z-fe-cry" secondAttribute="bottom" id="kjm-Vd-6yD"/>
+                            <constraint firstItem="L4Z-fe-cry" firstAttribute="leading" secondItem="VJE-0B-fQl" secondAttribute="leading" id="pBp-jV-wsk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Métodos de pago" id="138-8p-tBK">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="aze-ZB-FZa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tre-iX-KU2" customClass="SKMenuButton" customModule="Superkart" customModuleProvider="target">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <segue destination="X95-80-akc" kind="unwind" unwindAction="unwindToMenuViewControllerWithSegue:" id="CyT-hO-lI5"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="creditCardTableView" destination="L4Z-fe-cry" id="eWp-np-ibs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmw-rH-oA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="X95-80-akc" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2159.1999999999998" y="1457.7211394302849"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ASd-3X-qRp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wc-sJ-KDJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Dl-K5-PVK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZOR-RP-ssR" kind="relationship" relationship="rootViewController" id="M9J-vD-Njb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M75-Qf-6mD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1220" y="1457.7211394302849"/>
         </scene>
     </scenes>
     <resources>

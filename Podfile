@@ -17,7 +17,9 @@ target 'Superkart' do
   pod "ObjectMapper+Realm"
   pod "SearchTextField"
   pod 'IQKeyboardManagerSwift'
-
+  pod 'Stripe'
+  pod 'CardIO'
+  pod 'SVProgressHUD'
 end
 target 'SuperkartTests' do
 end

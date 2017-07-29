@@ -10,6 +10,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - CardIO (5.4.1)
   - ECSlidingViewController (2.0.3)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
@@ -56,12 +57,15 @@ PODS:
   - RealmSwift (1.1.0):
     - Realm (= 1.1.0)
   - SearchTextField (1.1.1)
+  - Stripe (11.1.0)
+  - SVProgressHUD (2.1.2)
   - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireObjectMapper (~> 4.0)
   - BarcodeScanner
+  - CardIO
   - ECSlidingViewController (~> 2.0.3)
   - FacebookCore (~> 0.2.0)
   - FacebookLogin (~> 0.2.0)
@@ -72,6 +76,8 @@ DEPENDENCIES:
   - ObjectMapper+Realm
   - RealmSwift
   - SearchTextField
+  - Stripe
+  - SVProgressHUD
   - VCMaterialDesignIcons
 
 SPEC CHECKSUMS:
@@ -79,6 +85,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   BarcodeScanner: 266ab4b479d407b74bc4b473fa5020b4523ad9e3
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   ECSlidingViewController: 6485c14f23b4487e9946535421ca8f111f86cc53
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
@@ -92,8 +99,10 @@ SPEC CHECKSUMS:
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
   SearchTextField: 13ee7bb4e89b1ce598611556f3d4c93604c8b97c
+  Stripe: 331994704823640a827b8da41255a439d60b61ce
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: d771ab3edb9e41f39df2abbd3b9f4bab3e2aee99
+PODFILE CHECKSUM: 000acbf775ebb5992679d12dbfbb7945fd3a7b2d
 
 COCOAPODS: 1.2.0
