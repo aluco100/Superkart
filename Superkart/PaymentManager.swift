@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Alamofire
 
 class PaymentManager {
     
@@ -51,6 +52,28 @@ class PaymentManager {
             print(error)
             return nil
         }
+    }
+    
+    //MARK: - Pay shopping kart
+    
+    public func payShoppingKart(amount: Int, token: String, success: @escaping ()->Void, failure: @escaping (_ error: NSError)->Void){
+        
+        let params : [String : Any] = [
+            "token" : token,
+            "amount" : amount,
+            "currency" : "CLP"
+        ]
+        
+        Alamofire.request(URLsManager.Router.payShoppingKart(parameters: params)).validate(statusCode: 200..<300).response{ response in
+            
+            if(response.response?.statusCode == 200){
+                success()
+            }else{
+                failure(response.error! as NSError)
+            }
+            
+        }
+        
     }
     
 }

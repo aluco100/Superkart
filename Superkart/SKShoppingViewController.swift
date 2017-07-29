@@ -9,6 +9,8 @@
 import UIKit
 import BarcodeScanner
 import FontAwesomeKit
+import Stripe
+import SVProgressHUD
 
 class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, BarcodeScannerErrorDelegate, BarcodeScannerDismissalDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -162,6 +164,65 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
     }
         
 
+    @IBAction func payShoppingCart(_ sender: Any) {
+        
+        let confirmation = UIAlertController(title: "Confirmación de compra", message: nil, preferredStyle: .alert)
+        confirmation.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { action in
+            if let card = PaymentManager.sharedInstance.findCreditCard(filter: nil){
+                
+                let cardParams: STPCardParams = STPCardParams()
+                cardParams.number = card.getCreditCardNumber()
+                cardParams.expMonth = UInt(card.expiration_month)
+                cardParams.expYear = UInt(card.expiration_year)
+                cardParams.cvc = card.cvv
+                
+                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+                SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+                //send card information to stripe to get back a token
+                self.getStripeToken(card: cardParams)
+                
+            }
+        }))
+        confirmation.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: nil))
+        self.present(confirmation, animated: true, completion: nil)
+        
+        
+    }
+    
+    func getStripeToken(card:STPCardParams) {
+        // get stripe token for current card
+        STPAPIClient.shared().createToken(withCard: card) { token, error in
+            if let token = token {
+                print(token)
+//                SVProgressHUD.showSuccess(withStatus: "Stripe token successfully received: \(token)")
+                self.postStripeToken(token: token)
+            } else {
+                print(error as Any)
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+    }
+    
+    // charge money from backend
+    func postStripeToken(token: STPToken) {
+        //Set up these params as your backend require
+//        let params: [String: Any] = ["stripeToken": token.tokenId, "amount": 10]
+        
+        let paymentManager = PaymentManager.sharedInstance
+        paymentManager.payShoppingKart(amount: self.total_value, token: token.tokenId, success: {
+            
+            SVProgressHUD.showSuccess(withStatus: "Transaccion exitosa")
+            
+        }, failure: { error in
+            print(error)
+            
+            SVProgressHUD.showError(withStatus: "No se ha podido realizar la compra")
+            
+        })
+
+        
+    }
+    
     /*
     // MARK: - Navigation
 

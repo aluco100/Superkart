@@ -313,6 +313,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
                                         <state key="normal" title="Pagar"/>
+                                        <connections>
+                                            <action selector="payShoppingCart:" destination="GDo-YA-irB" eventType="touchUpInside" id="Y4f-5d-ECy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
