@@ -163,9 +163,9 @@
                                     <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KZm-bn-jCc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plm-e5-Evl" customClass="FBSDKLoginButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plm-e5-Evl">
                                 <rect key="frame" x="24" y="452" width="327" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Iniciar con facebook"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -189,7 +189,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fbButton" destination="Plm-e5-Evl" id="RhC-P1-Qrk"/>
+                        <outlet property="fbButton" destination="Plm-e5-Evl" id="Kuc-tE-XAh"/>
                         <outlet property="passwordTextField" destination="jSG-ia-bGj" id="zLT-RU-vah"/>
                         <outlet property="usernameTextField" destination="U9H-n1-Y0m" id="QK9-10-BwX"/>
                         <segue destination="X2j-a0-HIL" kind="show" identifier="registerSegue" id="riC-zu-1Jb"/>
