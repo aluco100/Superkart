@@ -171,10 +171,14 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
             if let card = PaymentManager.sharedInstance.findCreditCard(filter: nil){
                 
                 let cardParams: STPCardParams = STPCardParams()
-                cardParams.number = card.getCreditCardNumber()
-                cardParams.expMonth = UInt(card.expiration_month)
-                cardParams.expYear = UInt(card.expiration_year)
-                cardParams.cvc = card.cvv
+                cardParams.number = "4242424242424242"
+                cardParams.expMonth = UInt(10)
+                cardParams.expYear = UInt(19)
+                cardParams.cvc = "422"
+//                cardParams.number = card.getCreditCardNumber()
+//                cardParams.expMonth = UInt(card.expiration_month)
+//                cardParams.expYear = UInt(card.expiration_year)
+//                cardParams.cvc = card.cvv
                 
                 SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
                 SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)

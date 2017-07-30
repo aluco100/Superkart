@@ -59,20 +59,23 @@ class PaymentManager {
     public func payShoppingKart(amount: Int, token: String, success: @escaping ()->Void, failure: @escaping (_ error: NSError)->Void){
         
         let params : [String : Any] = [
-            "token" : token,
+            "stripeToken" : token,
             "amount" : amount,
-            "currency" : "CLP"
+            "currency" : "clp",
+            "description" : "stripe test"
         ]
         
-        Alamofire.request(URLsManager.Router.payShoppingKart(parameters: params)).validate(statusCode: 200..<300).response{ response in
+        Alamofire.request(URLsManager.Router.payShoppingKart(parameters: params)).validate(statusCode: 200..<300).responseJSON(completionHandler: { response in
+            
+            print(response.result.value as Any)
             
             if(response.response?.statusCode == 200){
                 success()
             }else{
-                failure(response.error! as NSError)
+                failure(response.result.error! as NSError)
             }
             
-        }
+        })
         
     }
     
