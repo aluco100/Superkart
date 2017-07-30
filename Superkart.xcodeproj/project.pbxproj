@@ -15,6 +15,8 @@
 		0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F31E886A9600A4AEC0 /* SKColors.swift */; };
 		0C1F9CC21F2E27F9002882E3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F9CC11F2E27F9002882E3 /* UserManager.swift */; };
 		0C1F9CC41F2E4E32002882E3 /* SKRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F9CC31F2E4E32002882E3 /* SKRegisterViewController.swift */; };
+		0C1F9CC61F2E9EB4002882E3 /* SKFormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F9CC51F2E9EB4002882E3 /* SKFormTextField.swift */; };
+		0C1F9CC81F2E9FDF002882E3 /* SKFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F9CC71F2E9FDF002882E3 /* SKFormButton.swift */; };
 		0C328D4B1EF56614003A8608 /* SKNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */; };
 		0C7459CB1EF5607E00883264 /* SKProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7459CA1EF5607E00883264 /* SKProductCell.swift */; };
 		0C7C60E11F2CE0E800AD31E3 /* SKPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C60E01F2CE0E800AD31E3 /* SKPaymentViewController.swift */; };
@@ -83,6 +85,8 @@
 		0C0535F31E886A9600A4AEC0 /* SKColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKColors.swift; sourceTree = "<group>"; };
 		0C1F9CC11F2E27F9002882E3 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		0C1F9CC31F2E4E32002882E3 /* SKRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKRegisterViewController.swift; sourceTree = "<group>"; };
+		0C1F9CC51F2E9EB4002882E3 /* SKFormTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKFormTextField.swift; sourceTree = "<group>"; };
+		0C1F9CC71F2E9FDF002882E3 /* SKFormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKFormButton.swift; sourceTree = "<group>"; };
 		0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNumberFormatter.swift; sourceTree = "<group>"; };
 		0C7459CA1EF5607E00883264 /* SKProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKProductCell.swift; sourceTree = "<group>"; };
 		0C7C60E01F2CE0E800AD31E3 /* SKPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPaymentViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				0C0535F31E886A9600A4AEC0 /* SKColors.swift */,
 				0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */,
 				0CD37A151F1A4D7800A883D1 /* SKMenuButton.swift */,
+				0C1F9CC51F2E9EB4002882E3 /* SKFormTextField.swift */,
+				0C1F9CC71F2E9FDF002882E3 /* SKFormButton.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -684,9 +690,11 @@
 				0C328D4B1EF56614003A8608 /* SKNumberFormatter.swift in Sources */,
 				0CB25DA21EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift in Sources */,
 				0C7C60F01F2CEA3900AD31E3 /* SKScanCreditCardCell.swift in Sources */,
+				0C1F9CC61F2E9EB4002882E3 /* SKFormTextField.swift in Sources */,
 				0CB25DA71EEC517700A72E5C /* URLManager.swift in Sources */,
 				0C7C60F81F2CF7E900AD31E3 /* PaymentManager.swift in Sources */,
 				0C0535ED1E885DA500A4AEC0 /* ShoppingList.swift in Sources */,
+				0C1F9CC81F2E9FDF002882E3 /* SKFormButton.swift in Sources */,
 				0C7C60F21F2CECEA00AD31E3 /* SKCreditCardCell.swift in Sources */,
 				0CE5E59B1E6CA83B00D3B546 /* AppDelegate.swift in Sources */,
 				0C7C60F61F2CF66F00AD31E3 /* Payment.swift in Sources */,

@@ -15,8 +15,8 @@ import HexColors
 class ViewController: UIViewController {
 
     @IBOutlet weak var fbButton: UIButton!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: SKFormTextField!
+    @IBOutlet weak var passwordTextField: SKFormTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
