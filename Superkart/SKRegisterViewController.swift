@@ -23,12 +23,10 @@ class SKRegisterViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = SKColors().backgroundColor
-        self.emailTextField.backgroundColor = SKColors().alternativeColor
-        self.passwordTextField.backgroundColor = SKColors().alternativeColor
-        self.confirmPasswordTextField.backgroundColor = SKColors().alternativeColor
         self.navigationController?.navigationBar.barTintColor = SKColors().navColor
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.topItem?.title = "Registrarse"
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
     }

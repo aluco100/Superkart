@@ -129,7 +129,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-KO-GbK">
                                 <rect key="frame" x="127.5" y="36" width="120" height="120"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9H-n1-Y0m" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9H-n1-Y0m" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
                                 <rect key="frame" x="24" y="216" width="327" height="40"/>
                                 <color key="backgroundColor" red="0.37842205166816711" green="0.66244888305664062" blue="0.47265738248825073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -137,7 +137,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSG-ia-bGj" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
                                 <rect key="frame" x="24" y="296" width="327" height="40"/>
@@ -173,7 +173,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plm-e5-Evl">
-                                <rect key="frame" x="24" y="472" width="327" height="30"/>
+                                <rect key="frame" x="24" y="472" width="327" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Bwi-zX-O2N"/>
+                                </constraints>
                                 <state key="normal" title="Iniciar con facebook"/>
                             </button>
                         </subviews>
@@ -221,34 +224,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OUd-iD-sBd">
-                                <rect key="frame" x="16" y="50" width="343" height="328"/>
+                                <rect key="frame" x="16" y="50" width="343" height="368"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="32K-HN-Uww">
                                         <rect key="frame" x="111.5" y="0.0" width="120" height="120"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ru7-4T-Bi4">
-                                        <rect key="frame" x="0.0" y="160" width="343" height="168"/>
+                                        <rect key="frame" x="0.0" y="160" width="343" height="208"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V56-Jl-nJY">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V56-Jl-nJY" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="wDL-MG-R6b"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywB-jY-OCp">
-                                                <rect key="frame" x="0.0" y="46" width="343" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywB-jY-OCp" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="56" width="343" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="upl-D1-nZt"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirmar contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5x-v2-GVg">
-                                                <rect key="frame" x="0.0" y="92" width="343" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirmar contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5x-v2-GVg" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="112" width="343" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="a3n-ar-ukX"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaY-og-lMq">
-                                                <rect key="frame" x="0.0" y="138" width="343" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaY-og-lMq" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="168" width="343" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Fe5-2p-6Mh"/>
+                                                </constraints>
                                                 <state key="normal" title="Registrar">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -475,7 +490,7 @@
                 <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ABO-Lw-zvQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Kart" id="XO0-vk-g65"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHL-Lc-ROG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHL-Lc-ROG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -608,7 +623,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXH-gb-SbE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1aH-Gb-rKa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1aH-Gb-rKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -835,7 +850,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wc-sJ-KDJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Dl-K5-PVK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Dl-K5-PVK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

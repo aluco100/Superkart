@@ -16,6 +16,8 @@ class SKFormTextField: UITextField {
         self.layer.cornerRadius = 4.0
         self.layer.borderColor = SKColors().navColor.cgColor
         self.backgroundColor = UIColor.white
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15.0, height: 40.0))
+        self.leftViewMode = .always
     }
 
 }
