@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         self.fbButton.tintColor = UIColor.white
         self.fbButton.backgroundColor = UIColor("#3B5998")!
         self.fbButton.addTarget(self, action: #selector(loginFacebook), for: .touchUpInside)
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +49,7 @@ class ViewController: UIViewController {
     func loginFacebook(){
         let loginManager = LoginManager()
         
+        
         loginManager.logIn([ .publicProfile, .email ], viewController: self) { loginResult in
             
             switch loginResult {
@@ -62,6 +65,8 @@ class ViewController: UIViewController {
                 
             case .success( let permisions, _, let accessToken):
                 
+                SVProgressHUD.show(withStatus: "Verificando usuario, por favor espere")
+                
                 let userMgr : UserManager = UserManager.sharedInstance
                 print(permisions)
                 
@@ -73,9 +78,18 @@ class ViewController: UIViewController {
 //                        print("result \(result)")
                         userMgr.registerUser(email: user["email"] as! String, password: "", success: {
                             
-                            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                            
-                            UIApplication.shared.keyWindow?.rootViewController = mainStoryboard.instantiateInitialViewController()
+                            userMgr.loginUser(email: user["email"] as! String, password: "", success: {
+                                
+                                SVProgressHUD.showSuccess(withStatus: "Inicio exitoso. Bienvenido!")
+                                
+                                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                                
+                                UIApplication.shared.keyWindow?.rootViewController = mainStoryboard.instantiateInitialViewController()
+                                
+                            }, failure: { error in
+                                print(error)
+                                SVProgressHUD.showError(withStatus: "No se ha podido iniciar con facebook")
+                            })
                             
                         }, failure: { error in
                             print(error)
@@ -103,8 +117,12 @@ class ViewController: UIViewController {
         
         if(self.usernameTextField.text != "" && self.passwordTextField.text != ""){
             
+            SVProgressHUD.show(withStatus: "Verificando usuario, por favor espere")
+            
             let userManager = UserManager.sharedInstance
             userManager.loginUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!, success: {
+                
+                SVProgressHUD.showSuccess(withStatus: "Inicio exitoso. Bienvenido!")
                 
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                 

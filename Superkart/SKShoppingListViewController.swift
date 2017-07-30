@@ -22,7 +22,7 @@ class SKShoppingListViewController: UIViewController,UITableViewDelegate,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchTextField.filterStrings(self.itemManager.findItemsToBuy().map({$0.name}))
+        searchTextField.filterStrings(self.itemManager.findItems(filter: nil)!.map({$0.name}))
         self.navigationController?.navigationBar.barTintColor = SKColors().navColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.view.backgroundColor = SKColors().backgroundColor

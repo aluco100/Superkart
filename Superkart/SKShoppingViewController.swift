@@ -184,6 +184,9 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
                 SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
                 SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
                 //send card information to stripe to get back a token
+                
+                SVProgressHUD.show(withStatus: "Realizando pago, por favor espere.")
+                
                 self.getStripeToken(card: cardParams)
                 
             }

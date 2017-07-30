@@ -34,7 +34,9 @@ class SKShoppingListCell: UITableViewCell {
             if(self.item.quantity > 0){
                 //code for stash label
                 let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "\(String(describing: self.titleLabel.text!))")
+                attributeString.addAttribute(NSBaselineOffsetAttributeName, value: 0, range: NSMakeRange(0, attributeString.length))
                 attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+//                attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
                 self.titleLabel.attributedText = attributeString
             }
         }

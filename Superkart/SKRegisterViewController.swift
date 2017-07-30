@@ -29,7 +29,8 @@ class SKRegisterViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = SKColors().navColor
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,9 +42,12 @@ class SKRegisterViewController: UIViewController {
 
     @IBAction func register(_ sender: Any) {
         
+        
         if(self.emailTextField.text != "" && self.passwordTextField.text != "" && self.confirmPasswordTextField.text != ""){
             
             if(self.passwordTextField.text == self.confirmPasswordTextField.text){
+                
+                SVProgressHUD.show(withStatus: "Realizando registro, por favor espere.")
                 
                 self.userManager.registerUser(email: self.emailTextField.text!, password: self.passwordTextField.text!, success: {
                     
