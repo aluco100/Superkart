@@ -9,10 +9,14 @@
 import UIKit
 import FacebookLogin
 import FBSDKLoginKit
+import SVProgressHUD
 
 class ViewController: UIViewController,FBSDKLoginButtonDelegate {
 
     @IBOutlet var fbButton: FBSDKLoginButton!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = SKColors().backgroundColor
@@ -24,6 +28,14 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     
@@ -45,8 +57,32 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
     
     //MARK: - IBActions
     
+    @IBAction func register(_ sender: Any) {
+        self.performSegue(withIdentifier: "registerSegue", sender: self)
+    }
+    
     @IBAction func manualLogin(_ sender: Any) {
-        self.performSegue(withIdentifier: "loginSegue", sender: self)
+        
+        if(self.usernameTextField.text != "" && self.passwordTextField.text != ""){
+            
+            let userManager = UserManager.sharedInstance
+            userManager.loginUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!, success: {
+                
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                
+                UIApplication.shared.keyWindow?.rootViewController = mainStoryboard.instantiateInitialViewController()
+                
+            }, failure: { error in
+                print(error)
+                SVProgressHUD.showError(withStatus: "Ocurrió un error. Por favor, intentelo nuevamente")
+            })
+            
+        }else{
+            SVProgressHUD.showError(withStatus: "Debe colocar su email y contraseña")
+        }
+        
+        
+        
     }
         
 

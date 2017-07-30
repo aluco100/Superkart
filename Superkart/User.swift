@@ -8,8 +8,9 @@
 
 import Foundation
 import RealmSwift
+import ObjectMapper
 
-class User: Object {
+class User: Object,Mappable {
     
     //MARK: - Properties
     private dynamic var id: Int = 0
@@ -18,14 +19,20 @@ class User: Object {
     public dynamic var shoppingList: ShoppingList? = nil
     
     //MARK: - Init
-    convenience init(withId: Int, withMail: String, withPassword: String, withShopping: ShoppingList){
-        //convenience init of super class
+    required convenience init?(map: Map) {
         self.init()
-        //init 
-        self.id = withId
-        self.mail = withMail
-        self.password = withPassword
-        self.shoppingList = withShopping
+    }
+    
+    //MARK: - Mapping
+    func mapping(map: Map) {
+        id<-map["idUser"]
+        mail<-map["email"]
+        password<-map["password"]
+    }
+        
+    //MARK: - Realm Methods
+    override static func primaryKey()->String?{
+        return "id"
     }
     
     //MARK: - Methods

@@ -133,9 +133,9 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "productIdentifier", for: indexPath) as? SKProductCell{
             cell.item = self.storage[indexPath.row]
+            cell.setup()
             self.total_value += Int(cell.productQuantityStepper.value) * cell.item!.cost
             self.shoppingTotalToPay.text = SKNumberFormatter().currencyStyle(number: self.total_value)
-            cell.setup()
             return cell
         }
         return UITableViewCell()
@@ -170,6 +170,7 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         confirmation.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { action in
             if let card = PaymentManager.sharedInstance.findCreditCard(filter: nil){
                 
+                //fixture
                 let cardParams: STPCardParams = STPCardParams()
                 cardParams.number = "4242424242424242"
                 cardParams.expMonth = UInt(10)

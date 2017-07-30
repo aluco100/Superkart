@@ -95,8 +95,19 @@ class SKMenuViewController: UIViewController,UITableViewDelegate,UITableViewData
         case "Lista de Compras":
             self.performSegue(withIdentifier: "ShoppingListSegue", sender: self)
             break
-        case "Cerrar Sesión":
-            //TODO: Close Session
+        case "Cerrar Sesión":            
+            let alert = UIAlertController(title: "Cerrar Sesión", message: "¿Está seguro de cerrar sesión?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+                let userManager = UserManager.sharedInstance
+                userManager.logout()
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let vc = mainStoryboard.instantiateViewController(withIdentifier: "loginViewController")
+                UIApplication.shared.keyWindow?.rootViewController = vc
+
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
             break
         default:
             break

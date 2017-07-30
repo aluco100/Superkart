@@ -13,6 +13,8 @@
 		0C0535EF1E885E4400A4AEC0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535EE1E885E4400A4AEC0 /* Item.swift */; };
 		0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */; };
 		0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0535F31E886A9600A4AEC0 /* SKColors.swift */; };
+		0C1F9CC21F2E27F9002882E3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F9CC11F2E27F9002882E3 /* UserManager.swift */; };
+		0C1F9CC41F2E4E32002882E3 /* SKRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F9CC31F2E4E32002882E3 /* SKRegisterViewController.swift */; };
 		0C328D4B1EF56614003A8608 /* SKNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */; };
 		0C7459CB1EF5607E00883264 /* SKProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7459CA1EF5607E00883264 /* SKProductCell.swift */; };
 		0C7C60E11F2CE0E800AD31E3 /* SKPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C60E01F2CE0E800AD31E3 /* SKPaymentViewController.swift */; };
@@ -79,6 +81,8 @@
 		0C0535EE1E885E4400A4AEC0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKShoppingViewController.swift; sourceTree = "<group>"; };
 		0C0535F31E886A9600A4AEC0 /* SKColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKColors.swift; sourceTree = "<group>"; };
+		0C1F9CC11F2E27F9002882E3 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		0C1F9CC31F2E4E32002882E3 /* SKRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKRegisterViewController.swift; sourceTree = "<group>"; };
 		0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNumberFormatter.swift; sourceTree = "<group>"; };
 		0C7459CA1EF5607E00883264 /* SKProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKProductCell.swift; sourceTree = "<group>"; };
 		0C7C60E01F2CE0E800AD31E3 /* SKPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPaymentViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				0CB25DA61EEC517700A72E5C /* URLManager.swift */,
 				0CD37A1C1F1A572100A883D1 /* ShoppingListManager.swift */,
 				0C7C60F71F2CF7E900AD31E3 /* PaymentManager.swift */,
+				0C1F9CC11F2E27F9002882E3 /* UserManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				0CB25D9D1EEC269100A72E5C /* SKMenuViewController.swift */,
 				0CD37A171F1A4E7000A883D1 /* SKShoppingListViewController.swift */,
 				0C7C60E01F2CE0E800AD31E3 /* SKPaymentViewController.swift */,
+				0C1F9CC31F2E4E32002882E3 /* SKRegisterViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				0CE5E59D1E6CA83B00D3B546 /* ViewController.swift in Sources */,
 				0C0535F11E8869BB00A4AEC0 /* SKShoppingViewController.swift in Sources */,
 				0CD37A1B1F1A54AF00A883D1 /* SKShoppingListCell.swift in Sources */,
+				0C1F9CC21F2E27F9002882E3 /* UserManager.swift in Sources */,
 				0CD37A1D1F1A572100A883D1 /* ShoppingListManager.swift in Sources */,
 				0C328D4B1EF56614003A8608 /* SKNumberFormatter.swift in Sources */,
 				0CB25DA21EEC2C5100A72E5C /* SKMenuItemTableViewCell.swift in Sources */,
@@ -689,6 +696,7 @@
 				0C0535EB1E885C7800A4AEC0 /* User.swift in Sources */,
 				0C7C60E11F2CE0E800AD31E3 /* SKPaymentViewController.swift in Sources */,
 				0CD37A161F1A4D7800A883D1 /* SKMenuButton.swift in Sources */,
+				0C1F9CC41F2E4E32002882E3 /* SKRegisterViewController.swift in Sources */,
 				0CB25D9E1EEC269100A72E5C /* SKMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

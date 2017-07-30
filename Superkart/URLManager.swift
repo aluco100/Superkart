@@ -20,6 +20,8 @@ class URLsManager: NSObject {
         case getItems(parameters: Parameters?)
         case getItem(parameters: Parameters?)
         case payShoppingKart(parameters: Parameters?)
+        case registerUser(parameters: Parameters)
+        case loginUser(parameters: Parameters)
         
         //base URL
         
@@ -37,6 +39,10 @@ class URLsManager: NSObject {
                 return .get
             case .payShoppingKart:
                 return .post
+            case .registerUser:
+                return .post
+            case .loginUser:
+                return .get
             }
         }
         
@@ -50,6 +56,10 @@ class URLsManager: NSObject {
                 return "getItem.php"
             case .payShoppingKart(_):
                 return "payment.php"
+            case .registerUser(_):
+                return "registerUser.php"
+            case .loginUser(_):
+                return "loginUser.php"
             }
             
         }
@@ -70,6 +80,12 @@ class URLsManager: NSObject {
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
                 break
             case .payShoppingKart(let parameters):
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                break
+            case .registerUser(let parameters):
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                break
+            case .loginUser(let parameters):
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
                 break
             }

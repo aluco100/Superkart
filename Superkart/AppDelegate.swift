@@ -22,9 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        self.updateItems()
         self.migrations()
+        self.rootView()
         Stripe.setDefaultPublishableKey("pk_test_orBdY6TxcwYxo8f7HswiWYaF")
         IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().tintColor = SKColors().navColor
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
@@ -55,11 +57,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func rootView(){
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        if(!self.isLogged()){
+            let viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            let navigation = UINavigationController(rootViewController: viewController)
+            self.window!.rootViewController = navigation
+        }else{
+            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        }
+        
+    }
+    
+    func isLogged()->Bool{
+        
+        let userManager = UserManager()
+        
+        if (userManager.currentUser() != nil){
+            return true
+        }
+        return false
+    }
+    
     func migrations(){
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 1,
+            schemaVersion: 2,
             
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above
