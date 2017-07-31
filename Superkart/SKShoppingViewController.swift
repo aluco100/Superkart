@@ -71,7 +71,7 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         self.shoppingTableView.dataSource = self
         
         //Shopping Pay Container
-        self.shoppingPayContainer.backgroundColor = SKColors().main_green
+        self.shoppingPayContainer.backgroundColor = SKColors().navColor
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "updateItemList"), object: nil, queue: nil, using: updateValue)
         

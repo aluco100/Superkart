@@ -400,13 +400,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx0-bl-Ykb">
                                         <rect key="frame" x="8" y="8" width="45" height="40"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sov-9y-zeM">
-                                        <rect key="frame" x="53" y="8" width="267" height="40"/>
+                                        <rect key="frame" x="58" y="8" width="262" height="40"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Koo-TE-pLX">
@@ -415,7 +415,9 @@
                                             <constraint firstAttribute="height" constant="40" id="ckc-da-hk9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
-                                        <state key="normal" title="Pagar"/>
+                                        <state key="normal" title="Pagar">
+                                            <color key="titleColor" red="0.41981726884841919" green="0.91369086503982544" blue="0.31058913469314575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="payShoppingCart:" destination="GDo-YA-irB" eventType="touchUpInside" id="Y4f-5d-ECy"/>
                                         </connections>
@@ -429,7 +431,7 @@
                                     <constraint firstAttribute="bottomMargin" secondItem="Sov-9y-zeM" secondAttribute="bottom" id="MgB-mv-Mfi"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="gx0-bl-Ykb" secondAttribute="bottom" id="Wvc-9W-WWo"/>
                                     <constraint firstItem="gx0-bl-Ykb" firstAttribute="top" secondItem="Yxo-Ft-U7l" secondAttribute="topMargin" id="XtP-kc-lvD"/>
-                                    <constraint firstItem="Sov-9y-zeM" firstAttribute="leading" secondItem="gx0-bl-Ykb" secondAttribute="trailing" id="czx-fy-HNa"/>
+                                    <constraint firstItem="Sov-9y-zeM" firstAttribute="leading" secondItem="gx0-bl-Ykb" secondAttribute="trailing" constant="5" id="czx-fy-HNa"/>
                                     <constraint firstItem="gx0-bl-Ykb" firstAttribute="leading" secondItem="Yxo-Ft-U7l" secondAttribute="leadingMargin" id="qBy-tg-jFc"/>
                                     <constraint firstItem="Sov-9y-zeM" firstAttribute="top" secondItem="Yxo-Ft-U7l" secondAttribute="topMargin" id="qpz-a5-ohC"/>
                                     <constraint firstItem="Koo-TE-pLX" firstAttribute="top" secondItem="Yxo-Ft-U7l" secondAttribute="topMargin" id="xFk-qr-BEY"/>
@@ -490,7 +492,7 @@
                 <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ABO-Lw-zvQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Kart" id="XO0-vk-g65"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHL-Lc-ROG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHL-Lc-ROG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -519,15 +521,15 @@
                                 <rect key="frame" x="16" y="72" width="343" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Buscar Producto" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UcE-K1-5Nw" customClass="SearchTextField" customModule="SearchTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUq-Wg-Y0E">
-                                        <rect key="frame" x="288" y="0.0" width="55" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUq-Wg-Y0E" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
+                                        <rect key="frame" x="278" y="0.0" width="65" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="25c-Cb-Fcm"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="25c-Cb-Fcm"/>
                                         </constraints>
                                         <state key="normal" title="Agregar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -623,7 +625,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXH-gb-SbE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1aH-Gb-rKa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1aH-Gb-rKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -850,7 +852,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wc-sJ-KDJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Dl-K5-PVK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Dl-K5-PVK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
