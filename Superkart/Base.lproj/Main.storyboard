@@ -492,7 +492,7 @@
                 <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ABO-Lw-zvQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Kart" id="XO0-vk-g65"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHL-Lc-ROG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHL-Lc-ROG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -625,7 +625,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXH-gb-SbE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1aH-Gb-rKa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1aH-Gb-rKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -638,7 +638,110 @@
             </objects>
             <point key="canvasLocation" x="1224.8" y="781.25937031484261"/>
         </scene>
-        <!--Métodos de pago-->
+        <!--Tarjetas-->
+        <scene sceneID="sP6-TU-EMS">
+            <objects>
+                <viewController id="wa6-56-wOI" customClass="SKCardViewController" customModule="Superkart" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d0b-JR-r8f"/>
+                        <viewControllerLayoutGuide type="bottom" id="FUT-1P-CI9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AV1-gv-DXM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kMv-Fb-IXJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardIdentifier" rowHeight="70" id="bdT-Vv-ttw" customClass="SKCardCell" customModule="Superkart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bdT-Vv-ttw" id="uS3-Tu-2sG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iYR-7j-Vro">
+                                                    <rect key="frame" x="8" y="8" width="359" height="53.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vxa-sR-MFE">
+                                                            <rect key="frame" x="0.0" y="2" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="vxa-sR-MFE" secondAttribute="height" multiplier="1:1" id="9Bc-TX-W9L"/>
+                                                                <constraint firstAttribute="height" constant="50" id="jA1-Uw-Z19"/>
+                                                                <constraint firstAttribute="width" constant="50" id="oJs-iy-xZM"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8p-Go-Orz">
+                                                            <rect key="frame" x="58" y="16.5" width="301" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="iYR-7j-Vro" secondAttribute="bottom" id="Rhk-Ff-g7p"/>
+                                                <constraint firstItem="iYR-7j-Vro" firstAttribute="leading" secondItem="uS3-Tu-2sG" secondAttribute="leadingMargin" id="Xr6-H5-Iri"/>
+                                                <constraint firstItem="iYR-7j-Vro" firstAttribute="top" secondItem="uS3-Tu-2sG" secondAttribute="topMargin" id="Zxa-FG-ZgQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iYR-7j-Vro" secondAttribute="trailing" id="lb6-5G-vJp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="vxa-sR-MFE" id="Zis-t1-VGz"/>
+                                            <outlet property="titleLabel" destination="H8p-Go-Orz" id="u7E-I9-Fan"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wa6-56-wOI" id="NXY-fi-iiL"/>
+                                    <outlet property="delegate" destination="wa6-56-wOI" id="4ro-j3-TPD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kMv-Fb-IXJ" secondAttribute="trailing" id="83V-Ev-Vnz"/>
+                            <constraint firstItem="kMv-Fb-IXJ" firstAttribute="top" secondItem="d0b-JR-r8f" secondAttribute="bottom" constant="-64" id="uC9-Jk-6gL"/>
+                            <constraint firstItem="FUT-1P-CI9" firstAttribute="top" secondItem="kMv-Fb-IXJ" secondAttribute="bottom" id="yyN-dF-hng"/>
+                            <constraint firstItem="kMv-Fb-IXJ" firstAttribute="leading" secondItem="AV1-gv-DXM" secondAttribute="leading" id="z5o-xI-vN3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tarjetas" id="xYd-eZ-Qsg">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="sLf-pa-vrq">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WrV-Hh-ZYl" customClass="SKMenuButton" customModule="Superkart" customModuleProvider="target">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <segue destination="ndI-d6-2Ga" kind="unwind" unwindAction="unwindToMenuViewControllerWithSegue:" id="Aa1-QT-lHh"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="KC9-3x-Z1a">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mtw-NR-P6f">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardTableView" destination="kMv-Fb-IXJ" id="niP-EJ-6tq"/>
+                        <outlet property="scanButton" destination="mtw-NR-P6f" id="9rT-J5-TcQ"/>
+                        <segue destination="ZOR-RP-ssR" kind="show" identifier="scanSegue" id="RyI-V8-TsS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ki-6R-952" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ndI-d6-2Ga" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2164" y="1457.7211394302849"/>
+        </scene>
+        <!--Escanear tarjeta-->
         <scene sceneID="1c2-jb-RWg">
             <objects>
                 <viewController id="ZOR-RP-ssR" customClass="SKPaymentViewController" customModule="Superkart" customModuleProvider="target" sceneMemberID="viewController">
@@ -826,39 +929,27 @@
                             <constraint firstItem="L4Z-fe-cry" firstAttribute="leading" secondItem="VJE-0B-fQl" secondAttribute="leading" id="pBp-jV-wsk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Métodos de pago" id="138-8p-tBK">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="aze-ZB-FZa">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tre-iX-KU2" customClass="SKMenuButton" customModule="Superkart" customModuleProvider="target">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu"/>
-                                <connections>
-                                    <segue destination="X95-80-akc" kind="unwind" unwindAction="unwindToMenuViewControllerWithSegue:" id="CyT-hO-lI5"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Escanear tarjeta" id="138-8p-tBK"/>
                     <connections>
                         <outlet property="creditCardTableView" destination="L4Z-fe-cry" id="eWp-np-ibs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmw-rH-oA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="X95-80-akc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2159.1999999999998" y="1457.7211394302849"/>
+            <point key="canvasLocation" x="2982" y="1458"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ASd-3X-qRp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wc-sJ-KDJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Dl-K5-PVK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Dl-K5-PVK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ZOR-RP-ssR" kind="relationship" relationship="rootViewController" id="M9J-vD-Njb"/>
+                        <segue destination="wa6-56-wOI" kind="relationship" relationship="rootViewController" id="3W0-p0-Vmx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M75-Qf-6mD" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -42,6 +42,41 @@ class PaymentManager {
         }
     }
     
+    public func findData(predicate: NSPredicate?)->[Payment]?{
+        
+        do {
+            let realm = try Realm()
+            
+            return predicate != nil ? Array(realm.objects(Payment.self).filter(predicate!)) : Array(realm.objects(Payment.self))
+            
+        } catch let error as NSError {
+            print(error)
+            return nil
+        }
+        
+    }
+    
+    public func removeCard(payment: Payment){
+        
+        do {
+            let realm = try Realm()
+            
+            do {
+                try realm.write {
+                    realm.delete(payment)
+                }
+            } catch let error as NSError {
+                print(error)
+                return
+            }
+            
+        } catch let error as NSError {
+            print(error)
+            return
+        }
+        
+    }
+    
     //MARK: - Find Credit Card
     
     public func findCreditCard(filter: NSPredicate?)->Payment?{

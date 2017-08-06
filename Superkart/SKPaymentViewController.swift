@@ -26,6 +26,7 @@ class SKPaymentViewController: UIViewController,UITableViewDataSource,UITableVie
         
         //nav bar settings
         self.navigationController?.navigationBar.barTintColor = SKColors().navColor
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
     }
     
@@ -106,26 +107,18 @@ class SKPaymentViewController: UIViewController,UITableViewDataSource,UITableVie
             card.expYear = info.expiryYear
             card.cvc = info.cvv
             
-            let payment = Payment(cardNumber: info.cardNumber, expirationMonth: Int(info.expiryMonth), expirationYear: Int(info.expiryYear), CVV: info.cvv)
+            let payment = Payment(cardNumber: info.cardNumber,cardHolderNumber: info.redactedCardNumber, expirationMonth: Int(info.expiryMonth), expirationYear: Int(info.expiryYear), CVV: info.cvv,cardType: info.cardType.rawValue)
             let paymentManager = PaymentManager.sharedInstance
             paymentManager.addCreditCard(payment: payment)
             self.card = payment
             let alert = UIAlertController(title: "Tarjeta Agregada", message: "Su tarjeta de credito \(info.redactedCardNumber!) ha sido agregada exitosamente", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                
+                self.navigationController?.popViewController(animated: true)
+            }))
             self.present(alert, animated: true, completion: nil)
             self.creditCardTableView.reloadData()
-            
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -16,14 +16,18 @@ class Payment: Object {
     public dynamic var expiration_month: Int = 0
     public dynamic var expiration_year: Int = 0
     public dynamic var cvv: String = ""
+    public dynamic var cardType: Int = 0
+    public dynamic var cardHolderNumber: String = ""
     
     //MARK: - Init
-    convenience init(cardNumber: String, expirationMonth: Int, expirationYear: Int, CVV: String) {
+    convenience init(cardNumber: String,cardHolderNumber: String, expirationMonth: Int, expirationYear: Int, CVV: String, cardType: Int) {
         self.init()
         self.card_number = cardNumber
         self.expiration_month = expirationMonth
         self.expiration_year = expirationYear
         self.cvv = CVV
+        self.cardType = cardType
+        self.cardHolderNumber = cardHolderNumber
     }
     
     //MARK: - Realm methods
