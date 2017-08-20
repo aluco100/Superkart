@@ -113,6 +113,24 @@ class ItemManager {
         
     }
     
+    public func removeItemsToBuy(){
+        
+        for i in self.findItemsToBuy(){
+            do{
+                let realm = try Realm()
+                do{
+                    try realm.write {
+                        i.quantity = 0
+                    }
+                }catch{
+                    print(error)
+                }
+            }catch{
+                print(error)
+            }
+        }
+    }
+    
     public func updateItem(item: Item, quantity: Int?){
         let realm = try! Realm()
         

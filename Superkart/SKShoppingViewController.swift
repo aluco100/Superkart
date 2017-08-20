@@ -100,11 +100,13 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         if let item = self.itemManager.findItem(barcode: code){
             self.itemManager.updateItem(item: item, quantity: 1)
             self.storage.append(item)
+            self.shoppingTableView.reloadData()
         }else{
             self.itemManager.getItem(barcode: code, success: {
                 let item = self.itemManager.findItem(barcode: code)!
                 self.itemManager.updateItem(item: item, quantity: 1)
                 self.storage.append(item)
+                self.shoppingTableView.reloadData()
             }, failure: {
                 error in
                 //despues que hacer con esto
@@ -168,28 +170,44 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
         let confirmation = UIAlertController(title: "Confirmación de compra", message: nil, preferredStyle: .alert)
         confirmation.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { action in
-            if let card = PaymentManager.sharedInstance.findCreditCard(filter: nil){
+            
+            
+            PaymentManager.sharedInstance.payItem(success: {
                 
-                //fixture
-                let cardParams: STPCardParams = STPCardParams()
-                cardParams.number = "4242424242424242"
-                cardParams.expMonth = UInt(10)
-                cardParams.expYear = UInt(19)
-                cardParams.cvc = "422"
-//                cardParams.number = card.getCreditCardNumber()
-//                cardParams.expMonth = UInt(card.expiration_month)
-//                cardParams.expYear = UInt(card.expiration_year)
-//                cardParams.cvc = card.cvv
+                //pagar la cuenta
+                if let card = PaymentManager.sharedInstance.findCreditCard(filter: nil){
+                    self.itemManager.removeItemsToBuy()
+                    self.storage = self.itemManager.findItemsToBuy()
+                    self.shoppingTableView.reloadData()
+                    //fixture
+                    let cardParams: STPCardParams = STPCardParams()
+                    cardParams.number = "4242424242424242"
+                    cardParams.expMonth = UInt(10)
+                    cardParams.expYear = UInt(19)
+                    cardParams.cvc = "422"
+                    //                cardParams.number = card.getCreditCardNumber()
+                    //                cardParams.expMonth = UInt(card.expiration_month)
+                    //                cardParams.expYear = UInt(card.expiration_year)
+                    //                cardParams.cvc = card.cvv
+                    
+                    SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+                    SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+                    //send card information to stripe to get back a token
+                    
+                    SVProgressHUD.show(withStatus: "Realizando pago, por favor espere.")
+                    
+                    self.getStripeToken(card: cardParams)
+                }else{
+                    SVProgressHUD.showError(withStatus: "Para pagar debe ingresar un método de pago.")
+                }
+                    
+
+            }, failure: { error in
                 
-                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-                SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
-                //send card information to stripe to get back a token
+                SVProgressHUD.showError(withStatus: "No se ha podido realizar la solicitud")
                 
-                SVProgressHUD.show(withStatus: "Realizando pago, por favor espere.")
-                
-                self.getStripeToken(card: cardParams)
-                
-            }
+            })
+            
         }))
         confirmation.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: nil))
         self.present(confirmation, animated: true, completion: nil)

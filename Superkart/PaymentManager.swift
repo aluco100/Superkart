@@ -114,4 +114,34 @@ class PaymentManager {
         
     }
     
+    //MARK: - Pay Item
+    
+    public func payItem(success: @escaping ()->Void, failure: @escaping (_ error: NSError)->Void){
+        
+        let itemManager = ItemManager.sharedInstance
+        
+        for i in itemManager.findItemsToBuy(){
+            
+            let params = [
+                "id_user" : UserManager.sharedInstance.currentUser()!.getID(),
+                "id_item" : i.getID(),
+                "quantity" : i.quantity
+            ]
+            
+            Alamofire.request(URLsManager.Router.payItem(params: params)).response(completionHandler: {
+                response in
+                if(response.error == nil){
+                    
+                    if(i == itemManager.findItemsToBuy().last){
+                        success()
+                    }
+                }else{
+                    failure(response.error! as NSError)
+                }
+            })
+            
+        }
+        
+    }
+    
 }
