@@ -46,33 +46,18 @@ class SKPaymentViewController: UIViewController,UITableViewDataSource,UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     //MARK: - Table View Delegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
-        case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "scanIdentifier", for: indexPath) as? SKScanCreditCardCell{
-                cell.delegate = self
-                return cell
-            }
-        case 1:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "creditCardIdentifier", for: indexPath) as? SKCreditCardCell{
-                if(self.card != nil){
-                    cell.setup(payment: self.card!)
-                }
-                return cell
-            }
-//        case 2:
-//            if let cell = tableView.dequeueReusableCell(withIdentifier: "countryIdentifier", for: indexPath) as? SKCountryCell{
-//                return cell
-//            }
-        default:
-            break
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "scanIdentifier", for: indexPath) as? SKScanCreditCardCell{
+            cell.delegate = self
+            return cell
         }
+        
         return UITableViewCell()
     }
     
@@ -84,7 +69,6 @@ class SKPaymentViewController: UIViewController,UITableViewDataSource,UITableVie
         present(cardIOVC!, animated: true, completion: nil)
         
     }
-    
     //MARK: - CardIO Methods
     
     func userDidCancel(_ paymentViewController: CardIOPaymentViewController!) {
