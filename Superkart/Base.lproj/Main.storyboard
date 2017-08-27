@@ -114,6 +114,89 @@
             </objects>
             <point key="canvasLocation" x="148" y="71"/>
         </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="eI7-gs-MLF">
+            <objects>
+                <viewController storyboardIdentifier="LaunchViewController" id="pj4-LV-3O0" customClass="SKLaunchViewController" customModule="Superkart" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ktI-JN-4ts"/>
+                        <viewControllerLayoutGuide type="bottom" id="q9g-O0-3nJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MAf-Jy-TXX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide01" translatesAutoresizingMaskIntoConstraints="NO" id="7NK-VN-PgB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YHd-Bt-4pS">
+                                <rect key="frame" x="24" y="595" width="327" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNP-ya-eXG" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="nCN-Az-DbD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                        <state key="normal" title="Registrarse"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonColor">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonMode">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCb-dk-jGP" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
+                                        <rect key="frame" x="171.5" y="0.0" width="155.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="nsK-gb-Kf2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                        <state key="normal" title="Ingresar"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonColor">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zNP-ya-eXG" firstAttribute="width" secondItem="pCb-dk-jGP" secondAttribute="width" id="LQe-pC-TlU"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="vlM-Qy-8st">
+                                <rect key="frame" x="94.5" y="120" width="185" height="112"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vlM-Qy-8st" firstAttribute="top" secondItem="ktI-JN-4ts" secondAttribute="bottom" constant="100" id="DBE-29-Ro0"/>
+                            <constraint firstItem="7NK-VN-PgB" firstAttribute="top" secondItem="ktI-JN-4ts" secondAttribute="bottom" id="GOK-TP-U4A"/>
+                            <constraint firstItem="YHd-Bt-4pS" firstAttribute="leading" secondItem="MAf-Jy-TXX" secondAttribute="leadingMargin" constant="8" id="WTf-RD-efH"/>
+                            <constraint firstAttribute="trailing" secondItem="7NK-VN-PgB" secondAttribute="trailing" id="Wd9-Sr-M5R"/>
+                            <constraint firstItem="q9g-O0-3nJ" firstAttribute="top" secondItem="7NK-VN-PgB" secondAttribute="bottom" id="gx9-UK-BcC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YHd-Bt-4pS" secondAttribute="trailing" constant="8" id="nWM-1V-Cm6"/>
+                            <constraint firstItem="vlM-Qy-8st" firstAttribute="centerX" secondItem="MAf-Jy-TXX" secondAttribute="centerX" id="vub-vi-bZS"/>
+                            <constraint firstItem="q9g-O0-3nJ" firstAttribute="top" secondItem="YHd-Bt-4pS" secondAttribute="bottom" constant="32" id="xsS-ib-Cyc"/>
+                            <constraint firstItem="7NK-VN-PgB" firstAttribute="leading" secondItem="MAf-Jy-TXX" secondAttribute="leading" id="zYO-mS-vyo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="pCb-dk-jGP" id="5Ra-SH-WEQ"/>
+                        <outlet property="registerButton" destination="zNP-ya-eXG" id="2U4-jD-lgg"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loginSegue" id="F3K-ix-K9R"/>
+                        <segue destination="X2j-a0-HIL" kind="show" identifier="registerSegue" id="x1a-U0-yFh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMe-0n-83R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="-648"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -126,67 +209,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-KO-GbK">
-                                <rect key="frame" x="127.5" y="36" width="120" height="120"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide03" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-Sa-ypn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-KO-GbK">
+                                <rect key="frame" x="95" y="36" width="185" height="112"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9H-n1-Y0m" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
-                                <rect key="frame" x="24" y="216" width="327" height="40"/>
+                                <rect key="frame" x="24" y="208" width="327" height="40"/>
                                 <color key="backgroundColor" red="0.37842205166816711" green="0.66244888305664062" blue="0.47265738248825073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eN8-Gv-XQp"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSG-ia-bGj" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
-                                <rect key="frame" x="24" y="296" width="327" height="40"/>
+                                <rect key="frame" x="24" y="288" width="327" height="40"/>
                                 <color key="backgroundColor" red="0.37842205166816711" green="0.66244888305664062" blue="0.47265738248825073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ku4-cu-s4Q"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvW-0x-QhX" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
-                                <rect key="frame" x="24" y="386" width="327" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="24" y="378" width="327" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eeq-eP-7Xy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonColor">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonMode">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="manualLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mra-zA-tPc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZS-HH-j1d" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
-                                <rect key="frame" x="299" y="36" width="60" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="DDA-m4-N6F"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KZm-bn-jCc"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plm-e5-Evl">
-                                <rect key="frame" x="24" y="472" width="327" height="40"/>
+                                <rect key="frame" x="24" y="468" width="327" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Bwi-zX-O2N"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                 <state key="normal" title="Iniciar con facebook"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="U9H-n1-Y0m" firstAttribute="top" secondItem="9pd-KO-GbK" secondAttribute="bottom" constant="60" id="8FF-Iq-kcc"/>
-                            <constraint firstItem="kZS-HH-j1d" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="DIb-ow-1r9"/>
+                            <constraint firstItem="oYR-Sa-ypn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="EFm-ZB-XBA"/>
                             <constraint firstItem="jSG-ia-bGj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Fgh-2O-fIv"/>
-                            <constraint firstItem="kZS-HH-j1d" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Gvg-a1-aB7"/>
+                            <constraint firstItem="oYR-Sa-ypn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JF8-mV-wa6"/>
                             <constraint firstItem="Plm-e5-Evl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="RDh-77-H43"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oYR-Sa-ypn" secondAttribute="bottom" id="Sz2-qh-5PO"/>
                             <constraint firstItem="U9H-n1-Y0m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="UmA-ec-C2c"/>
                             <constraint firstItem="CvW-0x-QhX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="V7C-Kw-Bzw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U9H-n1-Y0m" secondAttribute="trailing" constant="8" id="Zar-0W-r5E"/>
@@ -198,18 +284,18 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jSG-ia-bGj" secondAttribute="trailing" constant="8" id="h8x-nJ-xJb"/>
                             <constraint firstItem="9pd-KO-GbK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jLX-R1-2mD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Plm-e5-Evl" secondAttribute="trailing" constant="8" id="kEP-qO-pwn"/>
+                            <constraint firstAttribute="trailing" secondItem="oYR-Sa-ypn" secondAttribute="trailing" id="zVj-eV-Us5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fbButton" destination="Plm-e5-Evl" id="Kuc-tE-XAh"/>
                         <outlet property="passwordTextField" destination="jSG-ia-bGj" id="zLT-RU-vah"/>
                         <outlet property="usernameTextField" destination="U9H-n1-Y0m" id="QK9-10-BwX"/>
-                        <segue destination="X2j-a0-HIL" kind="show" identifier="registerSegue" id="riC-zu-1Jb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-630"/>
+            <point key="canvasLocation" x="1668" y="-602.24887556221893"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Hds-SG-WOG">
@@ -223,14 +309,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide02" translatesAutoresizingMaskIntoConstraints="NO" id="1yG-1O-tHg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OUd-iD-sBd">
-                                <rect key="frame" x="16" y="50" width="343" height="368"/>
+                                <rect key="frame" x="16" y="50" width="343" height="360"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="32K-HN-Uww">
-                                        <rect key="frame" x="111.5" y="0.0" width="120" height="120"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="32K-HN-Uww">
+                                        <rect key="frame" x="79" y="0.0" width="185" height="112"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ru7-4T-Bi4">
-                                        <rect key="frame" x="0.0" y="160" width="343" height="208"/>
+                                        <rect key="frame" x="0.0" y="152" width="343" height="208"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V56-Jl-nJY" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
@@ -238,7 +327,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="wDL-MG-R6b"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywB-jY-OCp" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
@@ -247,7 +336,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="upl-D1-nZt"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirmar contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5x-v2-GVg" customClass="SKFormTextField" customModule="Superkart" customModuleProvider="target">
@@ -256,7 +345,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="a3n-ar-ukX"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaY-og-lMq" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
@@ -264,9 +353,18 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Fe5-2p-6Mh"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <state key="normal" title="Registrar">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonColor">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonMode">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="register:" destination="X2j-a0-HIL" eventType="touchUpInside" id="nPp-IA-gHa"/>
                                                 </connections>
@@ -283,8 +381,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="OUd-iD-sBd" secondAttribute="trailing" id="2Hx-8X-3le"/>
+                            <constraint firstAttribute="trailing" secondItem="1yG-1O-tHg" secondAttribute="trailing" id="H9e-jw-jv7"/>
                             <constraint firstItem="OUd-iD-sBd" firstAttribute="leading" secondItem="4hr-IW-Pjc" secondAttribute="leadingMargin" id="MzK-mg-COt"/>
+                            <constraint firstItem="0tz-KK-WLj" firstAttribute="top" secondItem="1yG-1O-tHg" secondAttribute="bottom" id="P06-YK-t0Q"/>
                             <constraint firstItem="OUd-iD-sBd" firstAttribute="top" secondItem="vEE-xV-RPA" secondAttribute="bottom" constant="30" id="hzA-Om-IIq"/>
+                            <constraint firstItem="1yG-1O-tHg" firstAttribute="leading" secondItem="4hr-IW-Pjc" secondAttribute="leading" id="iZg-DR-2Xe"/>
+                            <constraint firstItem="1yG-1O-tHg" firstAttribute="top" secondItem="vEE-xV-RPA" secondAttribute="bottom" id="jVl-bh-jme"/>
                         </constraints>
                     </view>
                     <connections>
@@ -295,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhY-UO-KOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="-630"/>
+            <point key="canvasLocation" x="1701.5999999999999" y="-1288.6056971514245"/>
         </scene>
         <!--Shopping View Controller-->
         <scene sceneID="1AC-dp-QGA">
@@ -484,7 +586,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHl-5W-TQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WKa-ct-fA2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2159.1999999999998" y="28.335832083958024"/>
+            <point key="canvasLocation" x="2164" y="104"/>
         </scene>
         <!--Kart-->
         <scene sceneID="wv3-D7-ZjW">
@@ -492,7 +594,7 @@
                 <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ABO-Lw-zvQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Kart" id="XO0-vk-g65"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHL-Lc-ROG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHL-Lc-ROG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -625,7 +727,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXH-gb-SbE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1aH-Gb-rKa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1aH-Gb-rKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -849,7 +951,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wc-sJ-KDJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Dl-K5-PVK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Dl-K5-PVK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -864,6 +966,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="120" height="120"/>
+        <image name="logo2" width="185" height="112"/>
+        <image name="slide01" width="321" height="568"/>
+        <image name="slide02" width="320" height="568"/>
+        <image name="slide03" width="319" height="568"/>
     </resources>
 </document>

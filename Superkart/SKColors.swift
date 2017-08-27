@@ -17,5 +17,7 @@ struct SKColors {
     let backgroundColor: UIColor = UIColor("#0267C3")!
     let navColor: UIColor = UIColor("#0497D8")!
     let alternativeColor: UIColor = UIColor("#50B902")!
-    let main_green: UIColor = UIColor("#60A978")!
+    
+    let main_green: UIColor = UIColor("#8AC926")!
+    let main_yellow: UIColor = UIColor("#EC9F05")!
 }

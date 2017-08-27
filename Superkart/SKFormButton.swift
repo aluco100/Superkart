@@ -7,16 +7,72 @@
 //
 
 import UIKit
+import FontAwesomeKit
 
 class SKFormButton: UIButton {
 
+    //MARK: - Enums
+    enum color: Int {
+        case green
+        case lightBlue
+    }
     
+    enum mode: Int {
+        case register
+        case login
+    }
+    
+    //MARK: - Awake From NIB
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.borderWidth = 1.0
+        self.tintColor = UIColor.white
         self.layer.cornerRadius = 4.0
-        self.layer.borderColor = SKColors().backgroundColor.cgColor
-        self.backgroundColor = SKColors().navColor
+        
+        switch colorAdapter {
+        case .green:
+            self.backgroundColor = SKColors().main_green
+            break
+        case .lightBlue:
+            self.backgroundColor = SKColors().navColor
+            break
+        }
+        
+        switch modeAdapter {
+        case .register:
+            let icon = FAKFontAwesome.userIcon(withSize: 30.0)
+            icon?.setAttributes([NSForegroundColorAttributeName : UIColor.white])
+            self.setImage(icon?.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
+            break
+        case .login:
+            let icon = FAKFontAwesome.shoppingCartIcon(withSize: 30.0)
+            icon?.setAttributes([NSForegroundColorAttributeName : UIColor.white])
+            self.setImage(icon?.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
+            break
+        }
+        
+    }
+    
+    //MARK: - Adapters
+    var colorAdapter: color = .green
+    var modeAdapter: mode = .register
+    
+    //MARK: - IBInspectables
+    @IBInspectable var buttonColor: Int{
+        get{
+            return self.colorAdapter.rawValue
+        }
+        set(newValue){
+            self.colorAdapter = color(rawValue: newValue) ?? .green
+        }
+    }
+    
+    @IBInspectable var buttonMode: Int{
+        get{
+            return self.modeAdapter.rawValue
+        }
+        set(newValue){
+            self.modeAdapter = mode(rawValue: newValue) ?? .register
+        }
     }
 
 }

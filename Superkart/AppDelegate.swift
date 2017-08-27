@@ -25,8 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.rootView()
         Stripe.setDefaultPublishableKey("pk_test_orBdY6TxcwYxo8f7HswiWYaF")
         IQKeyboardManager.sharedManager().enable = true
+        UIApplication.shared.statusBarView?.backgroundColor = SKColors().backgroundColor
         UIApplication.shared.statusBarStyle = .lightContent
-        UINavigationBar.appearance().tintColor = SKColors().navColor
+        UINavigationBar.appearance().tintColor = SKColors().main_green
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
@@ -64,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         if(!self.isLogged()){
-            let viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            let viewController = storyboard.instantiateViewController(withIdentifier: "LaunchViewController")
             let navigation = UINavigationController(rootViewController: viewController)
             self.window!.rootViewController = navigation
         }else{
@@ -110,3 +111,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+}

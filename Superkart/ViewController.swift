@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookLogin
+import FontAwesomeKit
 import FBSDKLoginKit
 import SVProgressHUD
 import HexColors
@@ -23,11 +24,14 @@ class ViewController: UIViewController {
         self.view.backgroundColor = SKColors().backgroundColor
         
         // Do any additional setup after loading the view, typically from a nib.
+        let icon = FAKFontAwesome.facebookIcon(withSize: 30.0)
+        icon?.setAttributes([NSForegroundColorAttributeName : UIColor.white])
         self.fbButton.layer.borderWidth = 1.0
         self.fbButton.layer.borderColor = UIColor("#627aac")!.cgColor
         self.fbButton.layer.cornerRadius = 4.0
         self.fbButton.tintColor = UIColor.white
         self.fbButton.backgroundColor = UIColor("#3B5998")!
+        self.fbButton.setImage(icon?.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
         self.fbButton.addTarget(self, action: #selector(loginFacebook), for: .touchUpInside)
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
@@ -108,10 +112,6 @@ class ViewController: UIViewController {
     }
         
     //MARK: - IBActions
-    
-    @IBAction func register(_ sender: Any) {
-        self.performSegue(withIdentifier: "registerSegue", sender: self)
-    }
     
     @IBAction func manualLogin(_ sender: Any) {
         

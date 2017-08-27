@@ -101,8 +101,9 @@ class SKMenuViewController: UIViewController,UITableViewDelegate,UITableViewData
                 let userManager = UserManager.sharedInstance
                 userManager.logout()
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                let vc = mainStoryboard.instantiateViewController(withIdentifier: "loginViewController")
-                UIApplication.shared.keyWindow?.rootViewController = vc
+                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LaunchViewController")
+                let navigation = UINavigationController(rootViewController: viewController)
+                UIApplication.shared.keyWindow?.rootViewController = navigation
 
             }))
             alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))

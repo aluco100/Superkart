@@ -56,6 +56,8 @@
 		0CE5E5B01E6CA83B00D3B546 /* SuperkartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E5AF1E6CA83B00D3B546 /* SuperkartTests.swift */; };
 		0CE5E5BB1E6CA83B00D3B546 /* SuperkartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5E5BA1E6CA83B00D3B546 /* SuperkartUITests.swift */; };
 		0CE5E5C91E6CA91A00D3B546 /* icon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0CE5E5C81E6CA91A00D3B546 /* icon.pdf */; };
+		0CFA5F931F532B11005ACAEF /* SKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA5F921F532B11005ACAEF /* SKLabel.swift */; };
+		0CFA5F951F533150005ACAEF /* SKLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA5F941F533150005ACAEF /* SKLaunchViewController.swift */; };
 		79740B2703F1A9639F4803DC /* libPods-SuperkartUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBFE196C7558CE06588F6A7 /* libPods-SuperkartUITests.a */; };
 		DC4F5CCE225BA334090FB809 /* Pods_Superkart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677F6E34FD92166A28C36021 /* Pods_Superkart.framework */; };
 /* End PBXBuildFile section */
@@ -133,6 +135,8 @@
 		0CE5E5BA1E6CA83B00D3B546 /* SuperkartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperkartUITests.swift; sourceTree = "<group>"; };
 		0CE5E5BC1E6CA83C00D3B546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CE5E5C81E6CA91A00D3B546 /* icon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = icon.pdf; path = ../../icon.pdf; sourceTree = "<group>"; };
+		0CFA5F921F532B11005ACAEF /* SKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLabel.swift; sourceTree = "<group>"; };
+		0CFA5F941F533150005ACAEF /* SKLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLaunchViewController.swift; sourceTree = "<group>"; };
 		13C2F0193CB009087207F02A /* libPods-SuperkartTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperkartTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		148111DDEA07575E333B92FC /* Pods-SuperkartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperkartUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperkartUITests/Pods-SuperkartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2D7125FF56453A7436D3D644 /* Pods-Superkart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Superkart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Superkart/Pods-Superkart.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,10 +185,11 @@
 			isa = PBXGroup;
 			children = (
 				0C0535F31E886A9600A4AEC0 /* SKColors.swift */,
+				0CFA5F921F532B11005ACAEF /* SKLabel.swift */,
+				0C1F9CC71F2E9FDF002882E3 /* SKFormButton.swift */,
 				0C328D4A1EF56614003A8608 /* SKNumberFormatter.swift */,
 				0CD37A151F1A4D7800A883D1 /* SKMenuButton.swift */,
 				0C1F9CC51F2E9EB4002882E3 /* SKFormTextField.swift */,
-				0C1F9CC71F2E9FDF002882E3 /* SKFormButton.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -289,12 +294,12 @@
 			children = (
 				0C7C60ED1F2CE87300AD31E3 /* SuperKart-Bridging-Header.h */,
 				0CB25DA31EEC484200A72E5C /* Managers */,
+				0CEF37231E6CCFC30088F913 /* Controller */,
 				0CB25D9F1EEC2BF600A72E5C /* ViewClasses */,
+				0CEF37241E6CCFD30088F913 /* Model */,
 				0CB9DA0F1EE30B3B00690A8C /* Fonts */,
 				0C0535F21E886A8500A4AEC0 /* Helpers */,
 				0CEF37251E6CCFE00088F913 /* Assets */,
-				0CEF37241E6CCFD30088F913 /* Model */,
-				0CEF37231E6CCFC30088F913 /* Controller */,
 				0CE5E59A1E6CA83B00D3B546 /* AppDelegate.swift */,
 				0CE5E59E1E6CA83B00D3B546 /* Main.storyboard */,
 				0CE5E5A11E6CA83B00D3B546 /* Assets.xcassets */,
@@ -326,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE5E59C1E6CA83B00D3B546 /* ViewController.swift */,
+				0CFA5F941F533150005ACAEF /* SKLaunchViewController.swift */,
 				0C0535F01E8869BB00A4AEC0 /* SKShoppingViewController.swift */,
 				0CB25D9D1EEC269100A72E5C /* SKMenuViewController.swift */,
 				0CD37A171F1A4E7000A883D1 /* SKShoppingListViewController.swift */,
@@ -693,6 +699,7 @@
 				0CD6697C1F36886300429F69 /* SKCardCell.swift in Sources */,
 				0C1F9CC61F2E9EB4002882E3 /* SKFormTextField.swift in Sources */,
 				0CB25DA71EEC517700A72E5C /* URLManager.swift in Sources */,
+				0CFA5F931F532B11005ACAEF /* SKLabel.swift in Sources */,
 				0C7C60F81F2CF7E900AD31E3 /* PaymentManager.swift in Sources */,
 				0C0535ED1E885DA500A4AEC0 /* ShoppingList.swift in Sources */,
 				0C1F9CC81F2E9FDF002882E3 /* SKFormButton.swift in Sources */,
@@ -700,6 +707,7 @@
 				0C7C60F61F2CF66F00AD31E3 /* Payment.swift in Sources */,
 				0CB25DA51EEC485800A72E5C /* ItemManager.swift in Sources */,
 				0C0535F41E886A9600A4AEC0 /* SKColors.swift in Sources */,
+				0CFA5F951F533150005ACAEF /* SKLaunchViewController.swift in Sources */,
 				0CD6697E1F368AA400429F69 /* SKCardViewController.swift in Sources */,
 				0C0535EB1E885C7800A4AEC0 /* User.swift in Sources */,
 				0C7C60E11F2CE0E800AD31E3 /* SKPaymentViewController.swift in Sources */,
