@@ -36,7 +36,7 @@ class SKScanCreditCardCell: UITableViewCell {
         self.secondLayerView.layer.borderColor = SKColors().navColor.cgColor
         
         let creditCard = FAKFontAwesome.creditCardIcon(withSize: self.creditCardImageView.frame.size.height)
-        creditCard?.setAttributes([NSForegroundColorAttributeName : SKColors().alternativeColor])
+        creditCard?.setAttributes([NSAttributedStringKey.foregroundColor : SKColors().alternativeColor])
         let size = CGSize(width: (self.creditCardImageView.frame.size.width), height: (self.creditCardImageView.frame.size.height))
         self.creditCardImageView.image = creditCard?.image(with: size)
         

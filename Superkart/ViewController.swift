@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         let icon = FAKFontAwesome.facebookIcon(withSize: 30.0)
-        icon?.setAttributes([NSForegroundColorAttributeName : UIColor.white])
+        icon?.setAttributes([NSAttributedStringKey.foregroundColor : UIColor.white])
         self.fbButton.layer.borderWidth = 1.0
         self.fbButton.layer.borderColor = UIColor("#627aac")!.cgColor
         self.fbButton.layer.cornerRadius = 4.0

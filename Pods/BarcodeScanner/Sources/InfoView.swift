@@ -3,28 +3,25 @@ import UIKit
 /**
  Info view is an overlay with loading and error messages.
  */
-class InfoView: UIVisualEffectView {
-
+final class InfoView: UIVisualEffectView {
   /// Text label.
-  lazy var label: UILabel = {
+  private lazy var label: UILabel = {
     let label = UILabel()
-    label.numberOfLines = 2
-
+    label.numberOfLines = 3
     return label
   }()
 
   /// Info image view.
-  lazy var imageView: UIImageView = {
+  private lazy var imageView: UIImageView = {
     let image = imageNamed("info").withRenderingMode(.alwaysTemplate)
     let imageView = UIImageView(image: image)
-
     return imageView
   }()
 
   /// Border view.
-  lazy var borderView: UIView = {
+  private lazy var borderView: UIView = {
     let view = UIView()
-    view.backgroundColor = UIColor.clear
+    view.backgroundColor = .clear
     view.layer.borderWidth = 2
     view.layer.cornerRadius = 10
 
@@ -36,7 +33,7 @@ class InfoView: UIVisualEffectView {
    */
   var status: Status = Status(state: .scanning) {
     didSet {
-      setupFrames()
+      setNeedsLayout()
 
       let stateStyles = status.state.styles
 
@@ -64,7 +61,11 @@ class InfoView: UIVisualEffectView {
     super.init(effect: blurEffect)
 
     [label, imageView, borderView].forEach {
-      addSubview($0)
+        if #available(iOS 11.0, *) {
+            contentView.addSubview($0)
+        } else {
+            addSubview($0)
+        }
     }
 
     status = Status(state: .scanning)
@@ -79,7 +80,10 @@ class InfoView: UIVisualEffectView {
   /**
    Sets up frames of subviews.
    */
-  func setupFrames() {
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    let insets = viewInsets
     let padding: CGFloat = 10
     let labelHeight: CGFloat = 40
     let imageSize = CGSize(width: 30, height: 27)
@@ -87,35 +91,40 @@ class InfoView: UIVisualEffectView {
 
     if status.state != .processing && status.state != .notFound {
       imageView.frame = CGRect(
-        x: padding,
+        x: padding + insets.left,
         y: (frame.height - imageSize.height) / 2,
         width: imageSize.width,
-        height: imageSize.height)
+        height: imageSize.height
+      )
 
       label.frame = CGRect(
         x: imageView.frame.maxX + padding,
         y: 0,
-        width: frame.width - imageView.frame.maxX - 2 * padding,
-        height: frame.height)
+        width: frame.width - imageView.frame.maxX - 2 * padding - insets.right,
+        height: frame.height
+      )
     } else {
       imageView.frame = CGRect(
         x: (frame.width - imageSize.width) / 2,
         y: (frame.height - imageSize.height) / 2 - 60,
         width: imageSize.width,
-        height: imageSize.height)
+        height: imageSize.height
+      )
 
       label.frame = CGRect(
         x: padding,
         y: imageView.frame.maxY + 14,
         width: frame.width - 2 * padding,
-        height: labelHeight)
+        height: labelHeight
+      )
     }
 
     borderView.frame = CGRect(
       x: (frame.width - borderSize) / 2,
       y: imageView.frame.minY - 12,
       width: borderSize,
-      height: borderSize)
+      height: borderSize
+    )
   }
 
   // MARK: - Animations
@@ -127,7 +136,7 @@ class InfoView: UIVisualEffectView {
     borderView.isHidden = false
 
     animate(blurStyle: .light)
-    animate(borderViewAngle: CGFloat(M_PI_2))
+    animate(borderViewAngle: CGFloat(Double.pi/2))
   }
 
   /**
@@ -135,14 +144,14 @@ class InfoView: UIVisualEffectView {
 
    - Parameter style: The current blur style.
    */
-  func animate(blurStyle style: UIBlurEffectStyle) {
+  private func animate(blurStyle style: UIBlurEffectStyle) {
     guard status.state == .processing else { return }
 
     UIView.animate(withDuration: 2.0, delay: 0.5, options: [.beginFromCurrentState],
       animations: {
         self.effect = UIBlurEffect(style: style)
-      }, completion: { _ in
-        self.animate(blurStyle: style == .light ? .extraLight : .light)
+      }, completion: { [weak self] _ in
+        self?.animate(blurStyle: style == .light ? .extraLight : .light)
     })
   }
 
@@ -151,7 +160,7 @@ class InfoView: UIVisualEffectView {
 
    - Parameter angle: Rotation angle.
    */
-  func animate(borderViewAngle: CGFloat) {
+  private func animate(borderViewAngle: CGFloat) {
     guard status.state == .processing else {
       borderView.transform = CGAffineTransform.identity
       return
@@ -163,8 +172,8 @@ class InfoView: UIVisualEffectView {
       options: [.beginFromCurrentState],
       animations: {
         self.borderView.transform = CGAffineTransform(rotationAngle: borderViewAngle)
-      }, completion: { _ in
-        self.animate(borderViewAngle: borderViewAngle + CGFloat(M_PI_2))
+      }, completion: { [weak self] _ in
+        self?.animate(borderViewAngle: borderViewAngle + CGFloat(Double.pi/2))
     })
   }
 }

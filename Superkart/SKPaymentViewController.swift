@@ -27,7 +27,7 @@ class SKPaymentViewController: UIViewController,UITableViewDataSource,UITableVie
         //nav bar settings
         self.navigationController?.navigationBar.barTintColor = SKColors().navColor
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
     }
     
     override func viewWillAppear(_ animated: Bool) {

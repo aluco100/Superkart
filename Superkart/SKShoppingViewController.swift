@@ -51,12 +51,12 @@ class SKShoppingViewController: UIViewController, BarcodeScannerCodeDelegate, Ba
         
         
         let menu = FAKMaterialIcons.menuIcon(withSize: 30.0)
-        menu!.addAttribute(NSForegroundColorAttributeName, value: UIColor.white)
+        menu!.addAttribute(NSAttributedStringKey.foregroundColor.rawValue, value: UIColor.white)
         self.shoppingConfigurations.setImage(menu!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
         self.shoppingConfigurations.setTitle("", for: .normal)
         
         let photo = FAKFontAwesome.barcodeIcon(withSize: 30.0)
-        photo!.addAttributes([NSForegroundColorAttributeName : UIColor.white])
+        photo!.addAttributes([NSAttributedStringKey.foregroundColor : UIColor.white])
         self.shoppingTakePhoto.setImage(photo!.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
         self.shoppingTakePhoto.setTitle("", for: .normal)
         self.shoppingTakePhoto.addTarget(self, action: #selector(scanProduct), for: .touchUpInside)

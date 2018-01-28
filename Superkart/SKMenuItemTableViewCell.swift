@@ -30,7 +30,7 @@ class SKMenuItemTableViewCell: UITableViewCell {
         
         self.contentView.backgroundColor = SKColors().navColor
         
-        self.iconType.setAttributes([NSForegroundColorAttributeName: UIColor.white])
+        self.iconType.setAttributes([NSAttributedStringKey.foregroundColor: UIColor.white])
         self.iconImageView.image = self.iconType.image(with: CGSize(width: 30.0, height: 30.0))
         
         

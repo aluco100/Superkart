@@ -14,7 +14,7 @@ class SKMenuButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         let menu = FAKMaterialIcons.menuIcon(withSize: 30.0)
-        menu!.addAttribute(NSForegroundColorAttributeName, value: UIColor.white)
+        menu!.addAttribute(NSAttributedStringKey.foregroundColor.rawValue, value: UIColor.white)
         self.setImage(menu?.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
         self.setTitle("", for: .normal)
         self.tintColor = UIColor.white

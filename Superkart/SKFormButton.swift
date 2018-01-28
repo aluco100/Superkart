@@ -40,12 +40,12 @@ class SKFormButton: UIButton {
         switch modeAdapter {
         case .register:
             let icon = FAKFontAwesome.userIcon(withSize: 30.0)
-            icon?.setAttributes([NSForegroundColorAttributeName : UIColor.white])
+            icon?.setAttributes([NSAttributedStringKey.foregroundColor : UIColor.white])
             self.setImage(icon?.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
             break
         case .login:
             let icon = FAKFontAwesome.shoppingCartIcon(withSize: 30.0)
-            icon?.setAttributes([NSForegroundColorAttributeName : UIColor.white])
+            icon?.setAttributes([NSAttributedStringKey.foregroundColor : UIColor.white])
             self.setImage(icon?.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
             break
         }

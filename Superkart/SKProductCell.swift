@@ -35,7 +35,7 @@ class SKProductCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
         self.selectionStyle = .none
         let shoppingBasket = FAKFontAwesome.shoppingBasketIcon(withSize: 50.0)
-        shoppingBasket?.setAttributes([NSForegroundColorAttributeName: UIColor.white])
+        shoppingBasket?.setAttributes([NSAttributedStringKey.foregroundColor: UIColor.white])
         self.iconImageView.image = shoppingBasket?.image(with: CGSize(width: 50.0, height: 50.0))
         self.productQuantityLabel.text = "Cantidad: 1"
         self.productQuantityStepper.value = 1.0

@@ -22,7 +22,7 @@ class SKCardViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         
         let addIcon = FAKFontAwesome.plusIcon(withSize: 20)
-        addIcon?.setAttributes([NSForegroundColorAttributeName : UIColor.white])
+        addIcon?.setAttributes([NSAttributedStringKey.foregroundColor : UIColor.white])
         self.scanButton.setImage(addIcon?.image(with: CGSize(width: 20.0, height: 20.0)), for: .normal)
         self.scanButton.addTarget(self, action: #selector(addCard), for: .touchUpInside)
         
@@ -32,7 +32,7 @@ class SKCardViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.cardTableView.backgroundColor = SKColors().backgroundColor
         
         self.navigationController?.navigationBar.barTintColor = SKColors().navColor
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.view.backgroundColor = SKColors().backgroundColor
         
     }
