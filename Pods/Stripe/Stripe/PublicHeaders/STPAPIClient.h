@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <PassKit/PassKit.h>
+
+#import "FauxPasAnnotations.h"
 #import "STPBlocks.h"
 #import "STPFile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define FAUXPAS_IGNORED_ON_LINE(...)
-#define FAUXPAS_IGNORED_IN_FILE(...)
-FAUXPAS_IGNORED_IN_FILE(APIAvailability)
+/**
+ The current version of this library.
+ */
+static NSString *const STPSDKVersion = @"12.1.2";
 
-static NSString *const STPSDKVersion = @"11.1.0";
-
-@class STPBankAccount, STPBankAccountParams, STPCard, STPCardParams, STPSourceParams, STPToken, STPPaymentConfiguration;
+@class STPBankAccount, STPBankAccountParams, STPCard, STPCardParams, STPConnectAccountParams, STPSourceParams, STPToken, STPPaymentConfiguration;
 
 /**
  A top-level class that imports the rest of the Stripe SDK.
@@ -54,7 +55,7 @@ static NSString *const STPSDKVersion = @"11.1.0";
 
 
 /**
- Initializes an API client with the given configuration. Its API key will be 
+ Initializes an API client with the given configuration. Its API key will be
  set to the configuration's publishable key.
 
  @param configuration The configuration to use.
@@ -83,7 +84,7 @@ static NSString *const STPSDKVersion = @"11.1.0";
 
 /**
  In order to perform API requests on behalf of a connected account, e.g. to
- create a source on a connected account, set this property to the ID of the 
+ create a source on a connected account, set this property to the ID of the
  account for which this request is being made.
 
  @see https://stripe.com/docs/connect/authentication#authentication-via-the-stripe-account-header
@@ -126,6 +127,28 @@ static NSString *const STPSDKVersion = @"11.1.0";
 
 @end
 
+#pragma mark Connect Accounts
+
+/**
+ Stripe extensions for working with Connect Accounts
+ */
+@interface STPAPIClient (ConnectAccounts)
+
+
+/**
+ Converts an `STPConnectAccountParams` object into a Stripe token using the Stripe API.
+
+ This allows the connected account to accept the Terms of Service, and/or send Legal Entity information.
+
+ @param account The Connect Account parameters. Cannot be nil.
+ @param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
+ */
+- (void)createTokenWithConnectAccount:(STPConnectAccountParams *)account completion:(__nullable STPTokenCompletionBlock)completion;
+
+@end
+
+#pragma mark Upload
+
 /**
  STPAPIClient extensions to upload files.
  */
@@ -134,7 +157,7 @@ static NSString *const STPSDKVersion = @"11.1.0";
 
 /**
  Uses the Stripe file upload API to upload an image. This can be used for
- identity veritfication and evidence disputes.
+ identity verification and evidence disputes.
 
  @param image The image to be uploaded. The maximum allowed file size is 4MB
         for identity documents and 8MB for evidence disputes. Cannot be nil.
@@ -176,8 +199,8 @@ static NSString *const STPSDKVersion = @"11.1.0";
 @interface Stripe(ApplePay)
 
 /**
- Whether or not this device is capable of using Apple Pay. This checks both 
- whether the device supports Apple Pay, as well as whether or not they have 
+ Whether or not this device is capable of using Apple Pay. This checks both
+ whether the device supports Apple Pay, as well as whether or not they have
  stored Apple Pay cards on their device.
 
  @param paymentRequest The return value of this method depends on the
@@ -188,6 +211,17 @@ static NSString *const STPSDKVersion = @"11.1.0";
 */
 + (BOOL)canSubmitPaymentRequest:(PKPaymentRequest *)paymentRequest;
 
+/**
+ Whether or not this can make Apple Pay payments via a card network supported
+ by Stripe.
+
+ The Stripe supported Apple Pay card networks are:
+ American Express, Visa, Mastercard, Discover.
+
+ @return YES if the device is currently able to make Apple Pay payments via one
+ of the supported networks. NO if the user does not have a saved card of a
+ supported type, or other restrictions prevent payment (such as parental controls).
+ */
 + (BOOL)deviceSupportsApplePay;
 
 /**
@@ -226,7 +260,7 @@ static NSString *const STPSDKVersion = @"11.1.0";
  */
 + (PKPaymentRequest *)paymentRequestWithMerchantIdentifier:(NSString *)merchantIdentifier
                                                    country:(NSString *)countryCode
-                                                  currency:(NSString *)currencyCode NS_AVAILABLE_IOS(8_0);
+                                                  currency:(NSString *)currencyCode;
 
 @end
 
@@ -288,6 +322,9 @@ static NSString *const STPSDKVersion = @"11.1.0";
 
 #pragma mark URL callbacks
 
+/**
+ Stripe extensions for working with URL callbacks
+ */
 @interface Stripe (STPURLCallbackHandlerAdditions)
 
 /**

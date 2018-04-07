@@ -132,13 +132,16 @@
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide01" translatesAutoresizingMaskIntoConstraints="NO" id="7NK-VN-PgB">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YHd-Bt-4pS">
-                                <rect key="frame" x="24" y="595" width="327" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YHd-Bt-4pS">
+                                <rect key="frame" x="24" y="597" width="327" height="38"/>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHz-3B-pKg">
+                                <rect key="frame" x="32" y="263.5" width="311" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNP-ya-eXG" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="8" width="311" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="nCN-Az-DbD"/>
+                                            <constraint firstAttribute="height" constant="50" id="bCD-Kw-0Wf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                         <state key="normal" title="Registrarse"/>
@@ -152,9 +155,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCb-dk-jGP" customClass="SKFormButton" customModule="Superkart" customModuleProvider="target">
-                                        <rect key="frame" x="171.5" y="0.0" width="155.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="90" width="311" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="nsK-gb-Kf2"/>
+                                            <constraint firstAttribute="height" constant="50" id="yjG-Wd-GBv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                         <state key="normal" title="Ingresar"/>
@@ -168,25 +171,38 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="zNP-ya-eXG" firstAttribute="width" secondItem="pCb-dk-jGP" secondAttribute="width" id="LQe-pC-TlU"/>
+                                    <constraint firstAttribute="trailing" secondItem="pCb-dk-jGP" secondAttribute="trailing" id="9pZ-2l-svJ"/>
+                                    <constraint firstItem="pCb-dk-jGP" firstAttribute="top" secondItem="zNP-ya-eXG" secondAttribute="bottom" constant="32" id="EcY-jS-pIz"/>
+                                    <constraint firstAttribute="bottom" secondItem="pCb-dk-jGP" secondAttribute="bottom" id="Ymj-9S-1ah"/>
+                                    <constraint firstItem="zNP-ya-eXG" firstAttribute="top" secondItem="UHz-3B-pKg" secondAttribute="top" constant="8" id="aKb-yP-QQF"/>
+                                    <constraint firstAttribute="trailing" secondItem="zNP-ya-eXG" secondAttribute="trailing" id="gwQ-zB-mN0"/>
+                                    <constraint firstItem="pCb-dk-jGP" firstAttribute="leading" secondItem="UHz-3B-pKg" secondAttribute="leading" id="lNe-sB-Wqe"/>
+                                    <constraint firstItem="zNP-ya-eXG" firstAttribute="leading" secondItem="UHz-3B-pKg" secondAttribute="leading" id="lcg-XO-92z"/>
                                 </constraints>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="vlM-Qy-8st">
-                                <rect key="frame" x="94.5" y="120" width="185" height="112"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="csk-39-hEX">
+                                <rect key="frame" x="32" y="52" width="311" height="112"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vlM-Qy-8st" firstAttribute="top" secondItem="ktI-JN-4ts" secondAttribute="bottom" constant="100" id="DBE-29-Ro0"/>
+                            <constraint firstItem="UHz-3B-pKg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="csk-39-hEX" secondAttribute="bottom" constant="8" id="1Hb-Mm-Bby"/>
                             <constraint firstItem="7NK-VN-PgB" firstAttribute="top" secondItem="ktI-JN-4ts" secondAttribute="bottom" id="GOK-TP-U4A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UHz-3B-pKg" secondAttribute="trailing" constant="16" id="HnK-wn-sgH"/>
+                            <constraint firstItem="UHz-3B-pKg" firstAttribute="centerY" secondItem="MAf-Jy-TXX" secondAttribute="centerY" id="KDO-aI-LXx"/>
+                            <constraint firstItem="UHz-3B-pKg" firstAttribute="leading" secondItem="MAf-Jy-TXX" secondAttribute="leadingMargin" constant="16" id="VOT-9h-2zh"/>
                             <constraint firstItem="YHd-Bt-4pS" firstAttribute="leading" secondItem="MAf-Jy-TXX" secondAttribute="leadingMargin" constant="8" id="WTf-RD-efH"/>
                             <constraint firstAttribute="trailing" secondItem="7NK-VN-PgB" secondAttribute="trailing" id="Wd9-Sr-M5R"/>
+                            <constraint firstItem="UHz-3B-pKg" firstAttribute="centerX" secondItem="MAf-Jy-TXX" secondAttribute="centerX" id="d4U-eV-TEV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="csk-39-hEX" secondAttribute="trailing" constant="16" id="fwW-gv-Kad"/>
                             <constraint firstItem="q9g-O0-3nJ" firstAttribute="top" secondItem="7NK-VN-PgB" secondAttribute="bottom" id="gx9-UK-BcC"/>
+                            <constraint firstItem="csk-39-hEX" firstAttribute="top" secondItem="ktI-JN-4ts" secondAttribute="bottom" constant="32" id="gxy-EW-BTF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YHd-Bt-4pS" secondAttribute="trailing" constant="8" id="nWM-1V-Cm6"/>
-                            <constraint firstItem="vlM-Qy-8st" firstAttribute="centerX" secondItem="MAf-Jy-TXX" secondAttribute="centerX" id="vub-vi-bZS"/>
                             <constraint firstItem="q9g-O0-3nJ" firstAttribute="top" secondItem="YHd-Bt-4pS" secondAttribute="bottom" constant="32" id="xsS-ib-Cyc"/>
                             <constraint firstItem="7NK-VN-PgB" firstAttribute="leading" secondItem="MAf-Jy-TXX" secondAttribute="leading" id="zYO-mS-vyo"/>
+                            <constraint firstItem="csk-39-hEX" firstAttribute="leading" secondItem="MAf-Jy-TXX" secondAttribute="leadingMargin" constant="16" id="zhU-Xl-axC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -198,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMe-0n-83R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="-648"/>
+            <point key="canvasLocation" x="856.79999999999995" y="-648.12593703148434"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

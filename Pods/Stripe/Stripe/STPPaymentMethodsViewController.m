@@ -13,6 +13,7 @@
 #import "STPCard.h"
 #import "STPColorUtils.h"
 #import "STPCoreViewController+Private.h"
+#import "STPCustomer+SourceTuple.h"
 #import "STPDispatchFunctions.h"
 #import "STPLocalizationUtils.h"
 #import "STPPaymentActivityIndicatorView.h"
@@ -22,6 +23,7 @@
 #import "STPPaymentMethodTuple.h"
 #import "STPPaymentMethodsInternalViewController.h"
 #import "STPPaymentMethodsViewController+Private.h"
+#import "STPSource.h"
 #import "STPTheme.h"
 #import "STPToken.h"
 #import "STPWeakStrongMacros.h"
@@ -33,26 +35,19 @@
 
 @interface STPPaymentMethodsViewController()<STPPaymentMethodsInternalViewControllerDelegate, STPAddCardViewControllerDelegate>
 
-@property(nonatomic)STPPaymentConfiguration *configuration;
-@property(nonatomic)STPAddress *shippingAddress;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-@property(nonatomic)id<STPBackendAPIAdapter> apiAdapter;
-#pragma clang diagnostic pop
-@property(nonatomic)STPAPIClient *apiClient;
-@property(nonatomic)STPPromise<STPPaymentMethodTuple *> *loadingPromise;
-@property(nonatomic)NSArray<id<STPPaymentMethod>> *paymentMethods;
-@property(nonatomic)id<STPPaymentMethod> selectedPaymentMethod;
-@property(nonatomic, weak)STPPaymentActivityIndicatorView *activityIndicator;
-@property(nonatomic, weak)UIViewController *internalViewController;
-@property(nonatomic)BOOL loading;
+@property (nonatomic) STPPaymentConfiguration *configuration;
+@property (nonatomic) STPAddress *shippingAddress;
+@property (nonatomic) id<STPBackendAPIAdapter> apiAdapter;
+@property (nonatomic) STPAPIClient *apiClient;
+@property (nonatomic) STPPromise<STPPaymentMethodTuple *> *loadingPromise;
+@property (nonatomic, weak) STPPaymentActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) UIViewController *internalViewController;
+@property (nonatomic) BOOL loading;
 
 @end
 
 @implementation STPPaymentMethodsViewController
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
 - (instancetype)initWithPaymentContext:(STPPaymentContext *)paymentContext {
     return [self initWithConfiguration:paymentContext.configuration
                             apiAdapter:paymentContext.apiAdapter
@@ -90,27 +85,13 @@
             if (error) {
                 [promise fail:error];
             } else {
-                STPCard *selectedCard;
-                NSMutableArray<STPCard *> *cards = [NSMutableArray array];
-                for (id<STPSourceProtocol> source in customer.sources) {
-                    if ([source isKindOfClass:[STPCard class]]) {
-                        STPCard *card = (STPCard *)source;
-                        [cards addObject:card];
-                        if ([card.stripeID isEqualToString:customer.defaultSource.stripeID]) {
-                            selectedCard = card;
-                        }
-                    }
-                }
-                STPCardTuple *cardTuple = [STPCardTuple tupleWithSelectedCard:selectedCard cards:cards];
-                STPPaymentMethodTuple *tuple = [STPPaymentMethodTuple tupleWithCardTuple:cardTuple
-                                                                         applePayEnabled:configuration.applePayEnabled];
-                [promise succeed:tuple];
+                STPPaymentMethodTuple *paymentTuple = [customer filteredSourceTupleForUIWithConfiguration:configuration];
+                [promise succeed:paymentTuple];
             }
         });
     }];
     return promise;
 }
-#pragma clang diagnostic pop
 
 - (void)createAndSetupViews {
     [super createAndSetupViews];
@@ -128,20 +109,34 @@
         }
         UIViewController *internal;
         if (tuple.paymentMethods.count > 0) {
-            internal = [[STPPaymentMethodsInternalViewController alloc] initWithConfiguration:self.configuration
-                                                                                        theme:self.theme
-                                                                         prefilledInformation:self.prefilledInformation
-                                                                              shippingAddress:self.shippingAddress
-                                                                           paymentMethodTuple:tuple
-                                                                                     delegate:self];
-        } else {
+            STPCustomerContext *customerContext = ([self.apiAdapter isKindOfClass:[STPCustomerContext class]]) ? (STPCustomerContext *)self.apiAdapter : nil;
+
+            STPPaymentMethodsInternalViewController *payMethodsInternal = [[STPPaymentMethodsInternalViewController alloc] initWithConfiguration:self.configuration
+                                                                                                                                 customerContext:customerContext
+                                                                                                                                           theme:self.theme
+                                                                                                                            prefilledInformation:self.prefilledInformation
+                                                                                                                                 shippingAddress:self.shippingAddress
+                                                                                                                              paymentMethodTuple:tuple
+                                                                                                                                        delegate:self];
+            payMethodsInternal.createsCardSources = self.configuration.createCardSources;
+            if (self.paymentMethodsViewControllerFooterView) {
+                payMethodsInternal.customFooterView = self.paymentMethodsViewControllerFooterView;
+            }
+            internal = payMethodsInternal;
+        }
+        else {
             STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:self.configuration theme:self.theme];
             addCardViewController.delegate = self;
             addCardViewController.prefilledInformation = self.prefilledInformation;
             addCardViewController.shippingAddress = self.shippingAddress;
             internal = addCardViewController;
-            
+
+            if (self.addCardViewControllerFooterView) {
+                addCardViewController.customFooterView = self.addCardViewControllerFooterView;
+
+            }
         }
+        
         internal.stp_navigationItemProxy = self.navigationItem;
         [self addChildViewController:internal];
         internal.view.alpha = 0;
@@ -176,8 +171,29 @@
 }
 
 - (void)finishWithPaymentMethod:(id<STPPaymentMethod>)paymentMethod {
-    if ([paymentMethod isKindOfClass:[STPCard class]]) {
-        [self.apiAdapter selectDefaultCustomerSource:(STPCard *)paymentMethod completion:^(__unused NSError *error) {
+    BOOL methodIsCardToken = [paymentMethod isKindOfClass:[STPCard class]];
+    BOOL methodIsCardSource = ([paymentMethod isKindOfClass:[STPSource class]] &&
+                               ((STPSource *)paymentMethod).type == STPSourceTypeCard);
+    id<STPSourceProtocol> source;
+    if (methodIsCardToken) {
+        source = (STPCard *)paymentMethod;
+    }
+    else if (methodIsCardSource) {
+        source = (STPSource *)paymentMethod;
+    }
+    if (source) {
+        // Make this payment method the default source
+        [self.apiAdapter selectDefaultCustomerSource:source completion:^(__unused NSError *error) {
+            // Reload the internal payment methods view controller with the updated customer
+            STPPromise<STPPaymentMethodTuple *> *promise = [self retrieveCustomerWithConfiguration:self.configuration apiAdapter:self.apiAdapter];
+            [promise onSuccess:^(STPPaymentMethodTuple *tuple) {
+                stpDispatchToMainThreadIfNecessary(^{
+                    if ([self.internalViewController isKindOfClass:[STPPaymentMethodsInternalViewController class]]) {
+                        STPPaymentMethodsInternalViewController *paymentMethodsVC = (STPPaymentMethodsInternalViewController *)self.internalViewController;
+                        [paymentMethodsVC updateWithPaymentMethodTuple:tuple];
+                    }
+                });
+            }];
         }];
     }
     if ([self.delegate respondsToSelector:@selector(paymentMethodsViewController:didSelectPaymentMethod:)]) {
@@ -190,22 +206,38 @@
     [self finishWithPaymentMethod:paymentMethod];
 }
 
-- (void)internalViewControllerDidCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
-    [self.apiAdapter attachSourceToCustomer:token completion:^(NSError *error) {
-        STPPromise<STPPaymentMethodTuple *> *promise = [self retrieveCustomerWithConfiguration:self.configuration apiAdapter:self.apiAdapter];
-        [promise onSuccess:^(STPPaymentMethodTuple *tuple) {
-            stpDispatchToMainThreadIfNecessary(^{
-                if ([self.internalViewController isKindOfClass:[STPPaymentMethodsInternalViewController class]]) {
-                    STPPaymentMethodsInternalViewController *paymentMethodsVC = (STPPaymentMethodsInternalViewController *)self.internalViewController;
-                    [paymentMethodsVC updateWithPaymentMethodTuple:tuple];
-                }
-            });
-        }];
+- (void)internalViewControllerDidDeletePaymentMethod:(id<STPPaymentMethod>)paymentMethod {
+    if ([self.delegate isKindOfClass:[STPPaymentContext class]]) {
+        // Notify payment context to update its copy of payment methods
+        STPPaymentContext *paymentContext = (STPPaymentContext *)self.delegate;
+        [paymentContext removePaymentMethod:paymentMethod];
+    }
+}
 
+- (void)internalViewControllerDidCreateSource:(id<STPSourceProtocol>)source completion:(STPErrorBlock)completion {
+    [self.apiAdapter attachSourceToCustomer:source completion:^(NSError *error) {
         stpDispatchToMainThreadIfNecessary(^{
             completion(error);
             if (!error) {
-                [self finishWithPaymentMethod:token.card];
+                /**
+                 When createCardSources is false, the SDK:
+                 1. Sends the token to customers/[id]/sources. This
+                 adds token.card to the customer's sources list. Surprisingly,
+                 attaching token.card to the customer will fail.
+                 2. Returns token.card to didCreatePaymentResult,
+                 where the user tells their backend to create a charge.
+                 A charge request with the token ID and customer ID
+                 will fail because the token is not linked to the
+                 customer (the card is).
+                 */
+                if ([source isKindOfClass:[STPToken class]]) {
+                    [self finishWithPaymentMethod:((STPToken *)source).card];
+                }
+                // created a card source
+                else if ([source isKindOfClass:[STPSource class]] &&
+                         ((STPSource *)source).type == STPSourceTypeCard) {
+                    [self finishWithPaymentMethod:(id<STPPaymentMethod>)source];
+                }
             }
         });
     }];
@@ -224,7 +256,13 @@
 - (void)addCardViewController:(__unused STPAddCardViewController *)addCardViewController
                didCreateToken:(STPToken *)token
                    completion:(STPErrorBlock)completion {
-    [self internalViewControllerDidCreateToken:token completion:completion];
+    [self internalViewControllerDidCreateSource:token completion:completion];
+}
+
+- (void)addCardViewController:(__unused STPAddCardViewController *)addCardViewController
+              didCreateSource:(STPSource *)source
+                   completion:(STPErrorBlock)completion {
+    [self internalViewControllerDidCreateSource:source completion:completion];
 }
 
 - (void)dismissWithCompletion:(STPVoidBlock)completion {
@@ -247,8 +285,6 @@
 
 @implementation STPPaymentMethodsViewController (Private)
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
 - (instancetype)initWithConfiguration:(STPPaymentConfiguration *)configuration
                            apiAdapter:(id<STPBackendAPIAdapter>)apiAdapter
                        loadingPromise:(STPPromise<STPPaymentMethodTuple *> *)loadingPromise
@@ -267,15 +303,14 @@
         self.navigationItem.title = STPLocalizedString(@"Loading…", @"Title for screen when data is still loading from the network.");
 
         WEAK(self);
-        [loadingPromise onSuccess:^(STPPaymentMethodTuple *tuple) {
-            STRONG(self);
-            self.paymentMethods = tuple.paymentMethods;
-            self.selectedPaymentMethod = tuple.selectedPaymentMethod;
-        }];
         [[[self.stp_didAppearPromise voidFlatMap:^STPPromise * _Nonnull{
             return loadingPromise;
         }] onSuccess:^(STPPaymentMethodTuple *tuple) {
             STRONG(self);
+            if (!self) {
+                return;
+            }
+
             if (tuple.selectedPaymentMethod) {
                 if ([self.delegate respondsToSelector:@selector(paymentMethodsViewController:didSelectPaymentMethod:)]) {
                     [self.delegate paymentMethodsViewController:self
@@ -284,11 +319,14 @@
             }
         }] onFailure:^(NSError *error) {
             STRONG(self);
+            if (!self) {
+                return;
+            }
+
             [self.delegate paymentMethodsViewController:self didFailToLoadWithError:error];
         }];
     }
     return self;
 }
-#pragma clang diagnostic pop
 
 @end

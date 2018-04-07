@@ -14,6 +14,7 @@
 #import "STPAPIClient+Private.h"
 
 #import "NSBundle+Stripe_AppName.h"
+#import "NSError+Stripe.h"
 #import "STPAPIRequest.h"
 #import "STPAnalyticsClient.h"
 #import "STPBankAccount.h"
@@ -31,7 +32,6 @@
 #import "STPSourcePoller.h"
 #import "STPTelemetryClient.h"
 #import "STPToken.h"
-#import "StripeError.h"
 #import "UIImage+Stripe.h"
 
 #if __has_include("Fabric.h")
@@ -42,9 +42,6 @@
 #ifdef STP_STATIC_LIBRARY_BUILD
 #import "STPCategoryLoader.h"
 #endif
-
-#define FAUXPAS_IGNORED_IN_METHOD(...)
-FAUXPAS_IGNORED_IN_FILE(APIAvailability)
 
 static NSString * const APIVersion = @"2015-10-12";
 static NSString * const APIBaseURL = @"https://api.stripe.com/v1";
@@ -123,10 +120,11 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
     if (self) {
         _apiKey = publishableKey;
         _apiURL = [NSURL URLWithString:APIBaseURL];
-        _urlSession = [NSURLSession sessionWithConfiguration:[self sessionConfiguration]];
         _configuration = configuration;
+        _stripeAccount = configuration.stripeAccount;
         _sourcePollers = [NSMutableDictionary dictionary];
         _sourcePollersQueue = dispatch_queue_create("com.stripe.sourcepollers", DISPATCH_QUEUE_SERIAL);
+        _urlSession = [NSURLSession sessionWithConfiguration:[self sessionConfiguration]];
     }
     return self;
 }
@@ -169,7 +167,6 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
                        completion:(STPTokenCompletionBlock)completion {
     NSCAssert(parameters != nil, @"'parameters' is required to create a token");
     NSCAssert(completion != nil, @"'completion' is required to use the token that is created");
-    NSDate *start = [NSDate date];
     NSString *tokenType = [STPAnalyticsClient tokenTypeFromParameters:parameters];
     [[STPAnalyticsClient sharedClient] logTokenCreationAttemptWithConfiguration:self.configuration
                                                                       tokenType:tokenType];
@@ -177,9 +174,7 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
                                         endpoint:APIEndpointToken
                                       parameters:parameters
                                     deserializer:[STPToken new]
-                                      completion:^(STPToken *object, NSHTTPURLResponse *response, NSError *error) {
-                                          NSDate *end = [NSDate date];
-                                          [[STPAnalyticsClient sharedClient] logRUMWithToken:object configuration:self.configuration response:response start:start end:end];
+                                      completion:^(STPToken *object, __unused NSHTTPURLResponse *response, NSError *error) {
                                           completion(object, error);
                                       }];
 }
@@ -225,11 +220,10 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
     if (model) {
         details[@"model"] = model;
     }
-    if ([[UIDevice currentDevice] respondsToSelector:@selector(identifierForVendor)]) {
-        NSString *vendorIdentifier = [[[UIDevice currentDevice] performSelector:@selector(identifierForVendor)] performSelector:@selector(UUIDString)];
-        if (vendorIdentifier) {
-            details[@"vendor_identifier"] = vendorIdentifier;
-        }
+
+    NSString *vendorIdentifier = [UIDevice currentDevice].identifierForVendor.UUIDString;
+    if (vendorIdentifier) {
+        details[@"vendor_identifier"] = vendorIdentifier;
     }
     return [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:[details copy] options:(NSJSONWritingOptions)kNilOptions error:NULL] encoding:NSUTF8StringEncoding];
 }
@@ -287,6 +281,19 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
 
 - (void)createTokenWithPersonalIDNumber:(NSString *)pii completion:(__nullable STPTokenCompletionBlock)completion {
     NSMutableDictionary *params = [@{@"pii": @{ @"personal_id_number": pii }} mutableCopy];
+    [[STPTelemetryClient sharedInstance] addTelemetryFieldsToParams:params];
+    [self createTokenWithParameters:params completion:completion];
+    [[STPTelemetryClient sharedInstance] sendTelemetryData];
+}
+
+@end
+
+#pragma mark - Connect Accounts
+
+@implementation STPAPIClient (ConnectAccounts)
+
+- (void)createTokenWithConnectAccount:(STPConnectAccountParams *)account completion:(__nullable STPTokenCompletionBlock)completion {
+    NSMutableDictionary *params = [[STPFormEncoder dictionaryForObject:account] mutableCopy];
     [[STPTelemetryClient sharedInstance] addTelemetryFieldsToParams:params];
     [self createTokenWithParameters:params completion:completion];
     [[STPTelemetryClient sharedInstance] sendTelemetryData];
@@ -368,8 +375,8 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
 
 @implementation STPAPIClient (CreditCards)
 
-- (void)createTokenWithCard:(STPCard *)card completion:(STPTokenCompletionBlock)completion {
-    NSMutableDictionary *params = [[STPFormEncoder dictionaryForObject:card] mutableCopy];
+- (void)createTokenWithCard:(STPCardParams *)cardParams completion:(STPTokenCompletionBlock)completion {
+    NSMutableDictionary *params = [[STPFormEncoder dictionaryForObject:cardParams] mutableCopy];
     [[STPTelemetryClient sharedInstance] addTelemetryFieldsToParams:params];
     [self createTokenWithParameters:params completion:completion];
     [[STPTelemetryClient sharedInstance] sendTelemetryData];
@@ -417,8 +424,8 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
     [paymentRequest setMerchantIdentifier:merchantIdentifier];
     [paymentRequest setSupportedNetworks:[self supportedPKPaymentNetworks]];
     [paymentRequest setMerchantCapabilities:PKMerchantCapability3DS];
-    [paymentRequest setCountryCode:countryCode];
-    [paymentRequest setCurrencyCode:currencyCode];
+    [paymentRequest setCountryCode:countryCode.uppercaseString];
+    [paymentRequest setCurrencyCode:currencyCode.uppercaseString];
     return paymentRequest;
 }
 
@@ -538,6 +545,18 @@ toCustomerUsingKey:(STPEphemeralKey *)ephemeralKey
                                              completion:^(id object, __unused NSHTTPURLResponse *response, NSError *error) {
                                                  completion(object, error);
                                              }];
+}
+
++ (void)deleteSource:(NSString *)sourceID fromCustomerUsingKey:(STPEphemeralKey *)ephemeralKey completion:(STPSourceProtocolCompletionBlock)completion {
+    STPAPIClient *client = [self apiClientWithEphemeralKey:ephemeralKey];
+    NSString *endpoint = [NSString stringWithFormat:@"%@/%@/%@/%@", APIEndpointCustomers, ephemeralKey.customerID, APIEndpointSources, sourceID];
+    [STPAPIRequest<STPSourceProtocol> deleteWithAPIClient:client
+                                                 endpoint:endpoint
+                                               parameters:nil
+                                            deserializers:@[[STPCard new], [STPSource new]]
+                                               completion:^(id object, __unused NSHTTPURLResponse *response, NSError *error) {
+                                                   completion(object, error);
+                                               }];
 }
 
 @end

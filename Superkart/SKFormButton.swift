@@ -49,7 +49,7 @@ class SKFormButton: UIButton {
             self.setImage(icon?.image(with: CGSize(width: 30.0, height: 30.0)), for: .normal)
             break
         }
-        
+        self.imageEdgeInsets.right = 16.0
     }
     
     //MARK: - Adapters
